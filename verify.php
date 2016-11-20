@@ -1,5 +1,5 @@
 <?php
-
+ 
 //get verification header
 $verifyHeader = 'HTTP_X_VERIFY_CREDENTIALS_AUTHORIZATION';
 if (!isset($_SERVER[$verifyHeader])) {
