@@ -1,9 +1,16 @@
 <?php
 
 //TODO: if some offshore uses his phone number to vote in other countries requesting with other country name
+include_once 'settings.php';
 
-//$DATA_PATH = "/var/www/Public/key/";
-$DATA_PATH = "/var/www/data/";
+//create save path if not exists
+if (empty($DATA_PATH) || !file_exists($DATA_PATH)) {
+    $DATA_PATH = "data/";
+    if (!file_exists($DATA_PATH)) {
+        mkdir($DATA_PATH, 0777, true);
+    }
+}
+
 $base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
 //id here can be the public or the private
@@ -104,20 +111,25 @@ if ("update" == $action) {
 echo $key;
 
 function newKey() {
-
-    global $public;
+    global $public, $DATA_PATH;
 
     if ($public) {
-        $path = $DATA_PATH . "/public/_last.txt";
+        $path = $DATA_PATH . "/public/";
     } else {
-        $path = $DATA_PATH . "/private/_last.txt";
+        $path = $DATA_PATH . "/private/";
     }
+    $file = $path . "_last.txt";
 
-    $handle = fopen($path, 'r+');
+    $handle = fopen($file, 'r+');
     if (false == $handle) {
-        file_put_contents("error.log", "$path file not exists; ", FILE_APPEND | LOCK_EX);
-        echo "_error open last key on $path; ";
-        return;
+        mkdir($path, 0777, true);        
+
+        $handle = fopen($file, 'w+');
+        if (false == $handle) {
+            file_put_contents("error.log", "$file file not exists; ", FILE_APPEND | LOCK_EX);
+            echo "_error open last key on $file; ";
+            return;
+        }
     }
 
     $content = fgets($handle);
