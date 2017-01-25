@@ -175,8 +175,14 @@ function create($key, $value) {
     //
 
     if (false == $fp) {
-        echo "_error: cant create file on create() on $url; ";
-        return;
+        global $path;
+        mkdir($path, 0777, true);
+        
+        $fp = fopen($url, "a");
+        if (false == $fp) {
+            echo "_error: cant create file on create() on $url; ";
+            return;
+        }
     }
     if (false == $len && !empty($value)) {
         echo "_error: SERVER OUT OF SPACE! on $url; ";
