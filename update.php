@@ -114,9 +114,9 @@ function newKey() {
     global $public, $DATA_PATH;
 
     if ($public) {
-        $path = $DATA_PATH . "/public/";
+        $path = $DATA_PATH . "public/";
     } else {
-        $path = $DATA_PATH . "/private/";
+        $path = $DATA_PATH . "private/";
     }
     $file = $path . "_last.txt";
 
