@@ -127,8 +127,8 @@ function newKey() {
         $handle = fopen($file, 'w+');
         if (false == $handle) {
             file_put_contents("error.log", "$file file not exists; ", FILE_APPEND | LOCK_EX);
-            echo "_error open last key on $file; \n";
-            return;
+            echo "_error opening last key on $file; \n";
+            die();
         }
     }
 
@@ -142,7 +142,7 @@ function newKey() {
         include_once 'error.php';
         error("illegible $path file; ");
         echo "_error on read last key on $path; ";
-        return;
+        die();
     }
 
     if ($public) {
@@ -181,12 +181,12 @@ function create($key, $value) {
         $fp = fopen($url, "a");
         if (false == $fp) {
             echo "_error: cant create file on create() on $url; path: $path; \n";
-            return;
+            die();
         }
     }
     if (false == $len && !empty($value)) {
         echo "_error: SERVER OUT OF SPACE! on $url; ";
-        return;
+        die();
     }
 
     global $public;
@@ -206,7 +206,7 @@ function create($key, $value) {
         }
         if (false == $len) {
             echo "_error: _index.txt not writable on $path; ";
-            return;
+            die();
         }
     }
 }
