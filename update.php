@@ -127,7 +127,7 @@ function newKey() {
         $handle = fopen($file, 'w+');
         if (false == $handle) {
             file_put_contents("error.log", "$file file not exists; ", FILE_APPEND | LOCK_EX);
-            echo "_error open last key on $file; ";
+            echo "_error open last key on $file; \n";
             return;
         }
     }
@@ -180,7 +180,7 @@ function create($key, $value) {
         
         $fp = fopen($url, "a");
         if (false == $fp) {
-            echo "_error: cant create file on create() on $url; ";
+            echo "_error: cant create file on create() on $url; path: $path; \n";
             return;
         }
     }
