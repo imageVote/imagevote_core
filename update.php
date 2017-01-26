@@ -127,7 +127,7 @@ function newKey() {
         $handle = fopen($file, 'w+');
         if (false == $handle) {
             file_put_contents("error.log", "$file file not exists; ", FILE_APPEND | LOCK_EX);
-            echo "_error opening last key on $file; \n";
+            echo "_error opening last key on $file; path: $path; \n";
             die();
         }
     }
