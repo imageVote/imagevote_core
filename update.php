@@ -122,7 +122,7 @@ function newKey() {
 
     $handle = fopen($file, 'r+');
     if (false == $handle) {
-        mkdir($path, 0777, true);        
+        mkdir($path, 0777, true);
 
         $handle = fopen($file, 'w+');
         if (false == $handle) {
@@ -170,20 +170,21 @@ function create($key, $value) {
 
     //file work only
     $fp = fopen($url, "a");
-    $len = fwrite($fp, $value);
-    fclose($fp);
-    //
 
     if (false == $fp) {
         global $path;
         mkdir($path, 0777, true);
-        
+
         $fp = fopen($url, "a");
         if (false == $fp) {
             echo "_error: cant create file on create() on $url; path: $path; \n";
             die();
         }
     }
+
+    $len = fwrite($fp, $value);
+    fclose($fp);
+
     if (false == $len && !empty($value)) {
         echo "_error: SERVER OUT OF SPACE! on $url; ";
         die();
@@ -193,20 +194,23 @@ function create($key, $value) {
     if ($public) {
         global $path;
 
-        //public search index
-        $string = ',"' . $key . '":' . json_encode($arr[0]);
-
-        $fp = fopen($path . "_index.txt", "a");
-        $len = fwrite($fp, $string);
-        fclose($fp);
-
-        if (false == $fp) {
-            echo "_1 error: cant open file _index.txt on $path; ";
-            return;
+        $exists = true;
+        if (!file_exists($path . '_index.txt')) {
+            $exists = false;
+            touch($path . "_index.txt");
         }
-        if (false == $len) {
-            echo "_error: _index.txt not writable on $path; ";
-            die();
+
+        $db = new SQLite3($path . '_index.txt');
+        if (!$exists) {
+            $db->exec('CREATE TABLE find (word varchar(255), file varchar (255))');
+            //echo "Table people has been created \n";
+        }
+        $words = $arr[0];
+        for ($i = 0; $i < count($words); $i++) {
+            if (strlen($words[$i]) < 3) {
+                continue;
+            }
+            $db->exec("INSERT INTO find (word, file) VALUES ({$words[$i]}, $key)");
         }
     }
 }
@@ -226,9 +230,30 @@ function update($url, $value) {
 
     //file work only
     $fp = fopen($url, "a");
-    $len = fwrite($fp, ",$value");
-    fclose($fp);
-    //
+
+    //http://stackoverflow.com/questions/18833448/php-flock-behaviour-when-file-is-locked-by-one-process
+    $count = 0;
+    $timeout_secs = 10; //number of seconds of timeout
+    $got_lock = true;
+    while (!flock($fp, LOCK_EX | LOCK_NB, $wouldblock)) {
+        $count++;
+        if ($wouldblock && $count < $timeout_secs) {
+            sleep(1);
+        } else {
+            $got_lock = false;
+            break;
+        }
+    }
+    if ($got_lock) {
+        // Do stuff with file
+        $len = fwrite($fp, ",$value");
+    } else {
+        echo "_error: cant save because file still locked";
+        die();
+    }
+
+    fclose($fp); //this release lock
+    //file work only
 
     if (false == $fp) {
         echo "_error: cant open file on update() on $url; (not www-data file?)";
