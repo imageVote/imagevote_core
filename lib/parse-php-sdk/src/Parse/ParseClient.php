@@ -347,7 +347,7 @@ final class ParseClient {
             curl_setopt($rest, CURLOPT_CUSTOMREQUEST, $method);
         }
 
-        echo $headers;
+        echo var_duump($headers);
         curl_setopt($rest, CURLOPT_HTTPHEADER, $headers);
 
         if (!is_null(self::$connectionTimeout)) {
