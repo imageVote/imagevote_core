@@ -1,6 +1,11 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 echo "ola;";
+
 //curl -X GET \
 //-H "X-Parse-Application-Id: ${APPLICATION_ID}" \
 //-H "X-Parse-REST-API-Key: ${REST_API_KEY}" \
