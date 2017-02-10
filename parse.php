@@ -52,7 +52,7 @@ try {
   // The object was not retrieved successfully.
   // error is a ParseException with an error code and message.
     echo "catch error: ";
-    var_dump($ex);
+    $ex.printStackTrace();
 }
 
 
