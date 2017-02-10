@@ -16,9 +16,9 @@ echo "ola;";
 //curl_setopt($rest, CURLOPT_URL, $url);
 //curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where={[objectId]:[BoKFYAgmOC]}&limit=1");
-curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
+//$ch = curl_init();
+//curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where={[objectId]:[BoKFYAgmOC]}&limit=1");
+//curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 //curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 //    'X-Parse-Application-Id: 4134380a-1991-4ad7-9f43-1e7f27855e29'
