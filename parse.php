@@ -46,12 +46,15 @@ ParseClient::setServerURL('https://api.parse.buddy.com', 'parse');
 $query = new ParseQuery("preguntas");
 try {
   $gameScore = $query->get("BoKFYAgmOC");
+  echo $gameScore->getObjectId();
   // The object was retrieved successfully.
 } catch (ParseException $ex) {
   // The object was not retrieved successfully.
   // error is a ParseException with an error code and message.
+    echo "catch error: ";
+    var_dump($ex);
 }
 
-echo $gameScore->getObjectId();
+
 
 echo "\n fin";
