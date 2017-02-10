@@ -337,7 +337,8 @@ final class ParseClient
         if ($method === 'GET' && !empty($data)) {
             $url .= '?'.http_build_query($data);
         }
-
+        echo "url: " . $url;
+        
         $rest = curl_init();
         curl_setopt($rest, CURLOPT_URL, $url);
         curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
