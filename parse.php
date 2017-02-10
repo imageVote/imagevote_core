@@ -43,17 +43,15 @@ ParseClient::initialize($app_id, null, $master_key);
 ParseClient::setServerURL('https://api.parse.buddy.com', 'parse');
 
 //
-$query = new ParseQuery("TestObject");
-$object = $query->get("BoKFYAgmOC");
+$query = new ParseQuery("preguntas");
+try {
+  $gameScore = $query->get("BoKFYAgmOC");
+  // The object was retrieved successfully.
+} catch (ParseException $ex) {
+  // The object was not retrieved successfully.
+  // error is a ParseException with an error code and message.
+}
 
-$query->limit(10); // default 100, max 1000
-
-$results = $query->find("true");
-
-// Process ALL (without limit) results with "each".
-// Will throw if sort, skip, or limit is used.
-$query->each(function($obj) {
-    echo $obj->getObjectId();
-});
+echo $gameScore->getObjectId();
 
 echo "\n fin";
