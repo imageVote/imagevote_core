@@ -11,8 +11,8 @@ use Parse\Internal\Encodable;
  *
  * @author Fosco Marotto <fjm@fb.com>
  */
-final class ParseClient
-{
+final class ParseClient {
+
     /**
      * The remote Parse Server to communicate with
      *
@@ -108,8 +108,7 @@ final class ParseClient
      *
      * @throws Exception
      */
-    public static function initialize($app_id, $rest_key, $master_key, $enableCurlExceptions = true, $account_key = null)
-    {
+    public static function initialize($app_id, $rest_key, $master_key, $enableCurlExceptions = true, $account_key = null) {
         if (!ParseObject::hasRegisteredSubclass('_User')) {
             ParseUser::registerSubclass();
         }
@@ -149,15 +148,15 @@ final class ParseClient
         if (!$serverURL) {
             throw new Exception('Invalid Server URL.');
         }
-        if( !$mountPath) {
+        if (!$mountPath) {
             throw new Exception('Invalid Mount Path.');
         }
 
-        self::$serverURL = rtrim($serverURL,'/');
-        self::$mountPath = trim($mountPath,'/') . '/';
+        self::$serverURL = rtrim($serverURL, '/');
+        self::$mountPath = trim($mountPath, '/') . '/';
 
         // check if mount path is root
-        if(self::$mountPath == "/") {
+        if (self::$mountPath == "/") {
             // root path should have no mount path
             self::$mountPath = "";
         }
@@ -173,8 +172,7 @@ final class ParseClient
      *
      * @return mixed Encoded results.
      */
-    public static function _encode($value, $allowParseObjects)
-    {
+    public static function _encode($value, $allowParseObjects) {
         if ($value instanceof \DateTime || $value instanceof \DateTimeImmutable) {
             return [
                 '__type' => 'Date', 'iso' => self::getProperDateFormat($value),
@@ -215,8 +213,7 @@ final class ParseClient
      *
      * @return mixed
      */
-    public static function _decode($data)
-    {
+    public static function _decode($data) {
         // The json decoded response from Parse will make JSONObjects into stdClass
         //     objects.    We'll change it to an associative array here.
         if ($data instanceof \stdClass) {
@@ -283,8 +280,7 @@ final class ParseClient
      *
      * @return array Encoded results.
      */
-    public static function _encodeArray($value, $allowParseObjects)
-    {
+    public static function _encodeArray($value, $allowParseObjects) {
         $output = [];
         foreach ($value as $key => $item) {
             $output[$key] = self::_encode($item, $allowParseObjects);
@@ -310,14 +306,7 @@ final class ParseClient
      * @return mixed Result from Parse API Call.
      */
     public static function _request(
-        $method,
-        $relativeUrl,
-        $sessionToken = null,
-        $data = null,
-        $useMasterKey = false,
-        $appRequest = false,
-        $contentType = 'application/json',
-        $returnHeaders = false
+    $method, $relativeUrl, $sessionToken = null, $data = null, $useMasterKey = false, $appRequest = false, $contentType = 'application/json', $returnHeaders = false
     ) {
         if ($data === '[]') {
             $data = '{}';
@@ -326,31 +315,30 @@ final class ParseClient
             // 'app' requests are not available in open source parse-server
             self::assertAppInitialized();
             $headers = self::_getAppRequestHeaders();
-
         } else {
             self::assertParseInitialized();
             $headers = self::_getRequestHeaders($sessionToken, $useMasterKey);
         }
 
-        $url = self::$serverURL.'/'.self::$mountPath.ltrim($relativeUrl, '/');
+        $url = self::$serverURL . '/' . self::$mountPath . ltrim($relativeUrl, '/');
 
         if ($method === 'GET' && !empty($data)) {
-            $url .= '?'.http_build_query($data);
+            $url .= '?' . http_build_query($data);
         }
         echo "url: " . $url;
-        
+
         $rest = curl_init();
         curl_setopt($rest, CURLOPT_URL, $url);
         curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
 
         if ($method === 'POST') {
-            $headers[] = 'Content-Type: '.$contentType;
+            $headers[] = 'Content-Type: ' . $contentType;
             curl_setopt($rest, CURLOPT_POST, 1);
             curl_setopt($rest, CURLOPT_POSTFIELDS, $data);
         }
 
         if ($method === 'PUT') {
-            $headers[] = 'Content-Type: '.$contentType;
+            $headers[] = 'Content-Type: ' . $contentType;
             curl_setopt($rest, CURLOPT_CUSTOMREQUEST, $method);
             curl_setopt($rest, CURLOPT_POSTFIELDS, $data);
         }
@@ -359,6 +347,7 @@ final class ParseClient
             curl_setopt($rest, CURLOPT_CUSTOMREQUEST, $method);
         }
 
+        echo $headers;
         curl_setopt($rest, CURLOPT_HTTPHEADER, $headers);
 
         if (!is_null(self::$connectionTimeout)) {
@@ -405,8 +394,7 @@ final class ParseClient
             // used to handle an Array 'error' from back4app.com
             $errorMessage = is_array($decoded['error']) ? json_encode($decoded['error']) : $decoded['error'];
             throw new ParseException(
-                $errorMessage,
-                isset($decoded['code']) ? $decoded['code'] : 0
+            $errorMessage, isset($decoded['code']) ? $decoded['code'] : 0
             );
         }
 
@@ -423,8 +411,7 @@ final class ParseClient
      *
      * @return array
      */
-    private static function parseCurlHeaders($headerContent)
-    {
+    private static function parseCurlHeaders($headerContent) {
         $headers = [];
         $headersContentSet = explode("\r\n\r\n", $headerContent);
         $withRedirect = count($headersContentSet) > 2;
@@ -467,8 +454,7 @@ final class ParseClient
      *
      * @param ParseStorageInterface $storageObject
      */
-    public static function setStorage(ParseStorageInterface $storageObject)
-    {
+    public static function setStorage(ParseStorageInterface $storageObject) {
         self::$storage = $storageObject;
     }
 
@@ -478,8 +464,7 @@ final class ParseClient
      *
      * @return ParseStorageInterface
      */
-    public static function getStorage()
-    {
+    public static function getStorage() {
         return self::$storage;
     }
 
@@ -489,16 +474,14 @@ final class ParseClient
      * Without some ability to clear the storage objects, all test cases would
      *     use the first assigned storage object.
      */
-    public static function _unsetStorage()
-    {
+    public static function _unsetStorage() {
         self::$storage = null;
     }
 
-    private static function assertParseInitialized()
-    {
+    private static function assertParseInitialized() {
         if (self::$applicationId === null) {
             throw new Exception(
-                'You must call Parse::initialize() before making any requests.'
+            'You must call Parse::initialize() before making any requests.'
             );
         }
     }
@@ -506,11 +489,10 @@ final class ParseClient
     /**
      * @throws Exception
      */
-    private static function assertAppInitialized()
-    {
+    private static function assertAppInitialized() {
         if (self::$accountKey === null) {
             throw new Exception(
-                'You must call Parse::initialize(..., $accountKey) before making any requests.'
+            'You must call Parse::initialize(..., $accountKey) before making any requests.'
             );
         }
     }
@@ -521,17 +503,16 @@ final class ParseClient
      *
      * @return array
      */
-    public static function _getRequestHeaders($sessionToken, $useMasterKey)
-    {
-        $headers = ['X-Parse-Application-Id: '.self::$applicationId,
-            'X-Parse-Client-Version: '.self::VERSION_STRING, ];
+    public static function _getRequestHeaders($sessionToken, $useMasterKey) {
+        $headers = ['X-Parse-Application-Id: ' . self::$applicationId,
+            'X-Parse-Client-Version: ' . self::VERSION_STRING,];
         if ($sessionToken) {
-            $headers[] = 'X-Parse-Session-Token: '.$sessionToken;
+            $headers[] = 'X-Parse-Session-Token: ' . $sessionToken;
         }
         if ($useMasterKey) {
-            $headers[] = 'X-Parse-Master-Key: '.self::$masterKey;
-        } else if(isset(self::$restKey)) {
-            $headers[] = 'X-Parse-REST-API-Key: '.self::$restKey;
+            $headers[] = 'X-Parse-Master-Key: ' . self::$masterKey;
+        } else if (isset(self::$restKey)) {
+            $headers[] = 'X-Parse-REST-API-Key: ' . self::$restKey;
         }
         if (self::$forceRevocableSession) {
             $headers[] = 'X-Parse-Revocable-Session: 1';
@@ -549,12 +530,11 @@ final class ParseClient
     /**
      * @return array
      */
-    public static function _getAppRequestHeaders()
-    {
+    public static function _getAppRequestHeaders() {
         if (is_null(self::$accountKey) || empty(self::$accountKey)) {
             throw new InvalidArgumentException('A account key is required and can not be null or empty');
         } else {
-            $headers[] = 'X-Parse-Account-Key: '.self::$accountKey;
+            $headers[] = 'X-Parse-Account-Key: ' . self::$accountKey;
         }
 
         /*
@@ -572,9 +552,8 @@ final class ParseClient
      *
      * @return string
      */
-    public static function getAPIUrl()
-    {
-        return self::$serverURL.'/'.self::$mountPath;
+    public static function getAPIUrl() {
+        return self::$serverURL . '/' . self::$mountPath;
     }
 
     /**
@@ -582,8 +561,7 @@ final class ParseClient
      *
      * @return string
      */
-    public static function getMountPath()
-    {
+    public static function getMountPath() {
         return self::$mountPath;
     }
 
@@ -597,11 +575,10 @@ final class ParseClient
      *
      * @return string
      */
-    public static function getProperDateFormat($value)
-    {
+    public static function getProperDateFormat($value) {
         $dateFormatString = 'Y-m-d\TH:i:s.u';
         $date = date_format($value, $dateFormatString);
-        $date = substr($date, 0, -3).'Z';
+        $date = substr($date, 0, -3) . 'Z';
 
         return $date;
     }
@@ -617,8 +594,7 @@ final class ParseClient
      *
      * @return string
      */
-    public static function getPushDateFormat($value, $local = false)
-    {
+    public static function getPushDateFormat($value, $local = false) {
         $dateFormatString = 'Y-m-d\TH:i:s';
         if (!$local) {
             $dateFormatString .= '\Z';
@@ -633,8 +609,7 @@ final class ParseClient
      * all requests for the app to use them.    After calling this method, login & signup requests
      * will be returned a unique and revocable session token.
      */
-    public static function enableRevocableSessions()
-    {
+    public static function enableRevocableSessions() {
         self::$forceRevocableSession = true;
     }
 
@@ -643,8 +618,7 @@ final class ParseClient
      *
      * @param int|null $connectionTimeout
      */
-    public static function setConnectionTimeout($connectionTimeout)
-    {
+    public static function setConnectionTimeout($connectionTimeout) {
         self::$connectionTimeout = $connectionTimeout;
     }
 
@@ -654,8 +628,8 @@ final class ParseClient
      *
      * @param int|null $timeout
      */
-    public static function setTimeout($timeout)
-    {
+    public static function setTimeout($timeout) {
         self::$timeout = $timeout;
     }
+
 }

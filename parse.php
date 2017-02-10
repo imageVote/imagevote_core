@@ -10,11 +10,16 @@ echo "ola;";
 //-H "X-Parse-Application-Id: ${APPLICATION_ID}" \
 //-H "X-Parse-REST-API-Key: ${REST_API_KEY}" \
 //https://api.parse.com/1/classes/GameScore/Ed1nuqPvcm
-//$ch = curl_init();
-//
-//curl_setopt($ch, CURLOPT_POST, 1);
-//curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/1/classes/preguntas");
-//
+
+
+//$rest = curl_init();
+//curl_setopt($rest, CURLOPT_URL, $url);
+//curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where={[objectId]:[BoKFYAgmOC]}&limit=1");
+curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
+
 //curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 //    'X-Parse-Application-Id: 4134380a-1991-4ad7-9f43-1e7f27855e29'
 //));
@@ -45,12 +50,12 @@ ParseClient::setServerURL('https://api.parse.buddy.com', 'parse');
 //
 $query = new ParseQuery("preguntas");
 try {
-  $gameScore = $query->get("BoKFYAgmOC");
-  echo $gameScore->getObjectId();
-  // The object was retrieved successfully.
+    $gameScore = $query->get("BoKFYAgmOC");
+    echo $gameScore->getObjectId();
+    // The object was retrieved successfully.
 } catch (ParseException $ex) {
-  // The object was not retrieved successfully.
-  // error is a ParseException with an error code and message.
+    // The object was not retrieved successfully.
+    // error is a ParseException with an error code and message.
     echo "catch error: ";
     echo $ex->getMessage();
 }
