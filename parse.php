@@ -4,20 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo "ola;";
-
-//curl -X GET \
-//-H "X-Parse-Application-Id: ${APPLICATION_ID}" \
-//-H "X-Parse-REST-API-Key: ${REST_API_KEY}" \
-//https://api.parse.com/1/classes/GameScore/Ed1nuqPvcm
-
-//$rest = curl_init();
-//curl_setopt($rest, CURLOPT_URL, $url);
-//curl_setopt($rest, CURLOPT_RETURNTRANSFER, 1);
-
 $ch = curl_init();
-//curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where={[objectId]:[BoKFYAgmOC]}&limit=1");
-curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where=%7B%22objectId%22%3A%22BoKFYAgmOC%22%7D&limit=1");
+//$query = urlencode("{[objectId]:[BoKFYAgmOC]}");
+//curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where=$query&limit=20");
+curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?limit=20");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -37,7 +27,6 @@ var_dump($prueba);
 
 curl_close($ch);
 
-//
 
 //require 'lib/parse-php-sdk/autoload.php';
 //
@@ -63,7 +52,3 @@ curl_close($ch);
 //    echo "catch error: ";
 //    echo $ex->getMessage();
 //}
-//
-//
-//
-//echo "\n fin";
