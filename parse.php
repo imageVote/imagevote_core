@@ -21,7 +21,8 @@ if (false == $prueba) {
     echo 'Curl error: ' . curl_error($ch);
 }
 
-echo $prueba;
+//echo $prueba;
+var_dump($prueba);
 
 curl_close($ch);
 
