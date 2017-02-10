@@ -48,7 +48,7 @@ $object = $query->get("BoKFYAgmOC");
 
 $query->limit(10); // default 100, max 1000
 
-$results = $query->find();
+$results = $query->find("true");
 
 // Process ALL (without limit) results with "each".
 // Will throw if sort, skip, or limit is used.
