@@ -43,7 +43,7 @@ ParseClient::initialize($app_id, null, $master_key);
 ParseClient::setServerURL('https://api.parse.buddy.com', 'parse');
 
 //
-$query = new ParseQuery("preguntas");
+$query = new ParseQuery("preguntass");
 try {
   $gameScore = $query->get("BoKFYAgmOC");
   echo $gameScore->getObjectId();
