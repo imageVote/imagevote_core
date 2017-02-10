@@ -50,3 +50,5 @@ $results = $query->find();
 $query->each(function($obj) {
     echo $obj->getObjectId();
 });
+
+echo "\n fin";
