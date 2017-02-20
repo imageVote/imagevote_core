@@ -1,0 +1,175 @@
+[15-02-2017 20:11:00] ; Error: Uncaught SyntaxError: Unexpected token < in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token < in JSON at position 0; 
+[15-02-2017 20:11:02] ; Error: Uncaught SyntaxError: Unexpected token < in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token < in JSON at position 0; 
+[15-02-2017 20:15:16] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 
+[15-02-2017 20:15:21] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 
+[15-02-2017 20:16:01] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 
+[15-02-2017 20:16:01] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 
+[15-02-2017 20:22:15] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 
+[15-02-2017 20:22:17] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/$5
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 
+[15-02-2017 20:32:35] ; Error: Uncaught TypeError: Cannot read property 6 of null
+url: http://localhost/wouldyourather/~polls/GamePoll.js
+line: 85
+column: 35
+error: TypeError: Cannot read property 6 of null; 
+[16-02-2017 00:20:47] ; Error: Uncaught TypeError: user.vt.sort is not a function
+url: http://localhost/wouldyourather/~js/FillTable.js
+line: 291
+column: 17
+error: TypeError: user.vt.sort is not a function; 
+[16-02-2017 10:57:15] ; Error: Uncaught TypeError: Cannot read property 0 of undefined
+url: http://localhost/wouldyourather/~js/FillTable.js
+line: 146
+column: 24
+error: TypeError: Cannot read property 0 of undefined; 
+[16-02-2017 11:30:50] ; Error: Uncaught ReferenceError: User is not defined
+url: http://localhost/wouldyourather/
+line: 315
+column: 35
+error: ReferenceError: User is not defined; 
+[16-02-2017 11:31:34] ; Error: Uncaught ReferenceError: id is not defined
+url: http://localhost/wouldyourather/~commons/js/User.js
+line: 3
+column: 31
+error: ReferenceError: id is not defined; 
+[16-02-2017 11:31:54] ; Error: Uncaught ReferenceError: id is not defined
+url: http://localhost/wouldyourather/~commons/js/User.js
+line: 8
+column: 15
+error: ReferenceError: id is not defined; 
+[16-02-2017 11:35:55] ; Error: Uncaught TypeError: Cannot read property 1 of undefined
+url: http://localhost/wouldyourather/~js/FillTable.js
+line: 49
+column: 44
+error: TypeError: Cannot read property 1 of undefined; 
+[16-02-2017 12:13:19] ; Error: Uncaught TypeError: Cannot read property click of undefined
+url: http://localhost/wouldyourather/~polls/GamePoll.js
+line: 145
+column: 15
+error: TypeError: Cannot read property click of undefined; 
+[16-02-2017 12:48:52] ; Error: Uncaught TypeError: Cannot read property 0 of undefined
+url: http://localhost/wouldyourather/~js/FillTable.js
+line: 151
+column: 24
+error: TypeError: Cannot read property 0 of undefined; 
+[16-02-2017 16:49:53] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/#home
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:50:01] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:50:24] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:52:20] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:52:40] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:55:09] ; Error: Uncaught ReferenceError: defaultStyle is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: defaultStyle is not defined; 
+[16-02-2017 16:55:41] ; Error: Uncaught ReferenceError: defaultStyle is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: defaultStyle is not defined; 
+[16-02-2017 16:55:45] ; Error: Uncaught ReferenceError: defaultStyle is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: defaultStyle is not defined; 
+[16-02-2017 16:56:43] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:56:47] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 16:56:48] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 17:00:17] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 17:01:01] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 17:02:17] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 17:02:18] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 17:19:00] ; Error: Uncaught ReferenceError: data is not defined
+url: http://localhost/wouldyourather/
+line: 17
+column: 30
+error: ReferenceError: data is not defined; 
+[16-02-2017 17:24:44] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 
+[16-02-2017 18:00:29] ; Error: Uncaught TypeError: Cannot read property questionColor of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property questionColor of undefined; 

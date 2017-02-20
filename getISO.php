@@ -5,8 +5,7 @@ if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
     $phone = $_GET["phone"];
 }
 
-//include_once 'phoneCodes.php';
-$json_data = file_get_contents('phoneCodes.json');
+$json_data = file_get_contents('phone/phoneCodes.json');
 $phoneCodes = json_decode($json_data, true);
 
 $firstValues = substr($phone, 0, 4);

@@ -45,7 +45,7 @@ if ($public) {
     $ISO = strtoupper($_POST["ISO"]);
 
     //check public key
-    include_once('hash.php');
+    include_once('phone/hash.php');
 
     $doubleHash = $_POST["digitsKey"]; //captcha name to hks
     if (!checkDoubleHash($userId, $ISO, $doubleHash)) {
@@ -64,7 +64,7 @@ if ($public) {
         if (strpos($ISO, $upperCountry) === false) {
 
             //check in ORGS
-            $json_data = file_get_contents('orgs.json');
+            $json_data = file_get_contents('phone/orgs.json');
             $ORGS = json_decode($json_data, true);
 
             $isInORG = false;

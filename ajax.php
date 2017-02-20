@@ -1,5 +1,7 @@
 <?php
 
+//store web url request
+
 if (isset($_POST["action"])) {
     $action = $_POST["action"];
     $action();
