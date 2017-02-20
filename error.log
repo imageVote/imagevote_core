@@ -173,3 +173,13 @@ url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
 line: 1
 column: 86165
 error: TypeError: Cannot read property questionColor of undefined; 
+[20-02-2017 17:41:18] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[20-02-2017 19:14:34] ; Error: Uncaught SyntaxError: Unexpected token % in JSON at position 0
+url: http://localhost/wouldyourather/#home
+line: 1
+column: 1
+error: SyntaxError: Unexpected token % in JSON at position 0; 

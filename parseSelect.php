@@ -30,11 +30,11 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-echo $query;
 $reponse = curl_exec($ch);
 
 if (false == $reponse) {
     echo '_error in curl: ' . curl_error($ch);
+    die();
 }
 
 try {
