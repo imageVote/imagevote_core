@@ -43,6 +43,12 @@ try {
     echo $reponse;
     die();
 }
+
+if(!isset($decode->results)){
+    echo "_error: " + $reponse;
+    die();
+}
+
 $arr = $decode->results;
 
 //echo "count: " . count($arr);

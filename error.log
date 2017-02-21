@@ -183,3 +183,38 @@ url: http://localhost/wouldyourather/#home
 line: 1
 column: 1
 error: SyntaxError: Unexpected token % in JSON at position 0; 
+[21-02-2017 11:56:09] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[21-02-2017 11:56:51] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[21-02-2017 11:59:36] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[21-02-2017 12:00:11] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[21-02-2017 12:00:58] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[21-02-2017 12:39:15] ; Error: Uncaught ReferenceError: needPermission is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: needPermission is not defined; 
+[21-02-2017 13:43:05] ; Error: Uncaught SyntaxError: Unexpected token <
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 2700
+error: SyntaxError: Unexpected token <; 
