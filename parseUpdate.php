@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$table = $_GET["table"];
 $id = $_GET["id"];
 $add = $_GET["add"];
 
@@ -38,7 +39,7 @@ $post = '{' . $post_values . '}';
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas/" . $id);
+curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/$table/$id");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
@@ -56,11 +57,11 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 $reponse = curl_exec($ch);
-curl_close($ch);
 
 if (false == $reponse) {
     echo '_error in curl: ' . curl_error($ch);
     die();
 }
+curl_close($ch);
 
 echo $reponse;

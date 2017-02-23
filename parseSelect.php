@@ -6,6 +6,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$table = $_GET["table"];
+
 $lastId = 0;
 if (isset($_GET["lastId"])) {
     $lastId = $_GET["lastId"];
@@ -17,7 +19,7 @@ if (isset($_GET["id"])) {
     $id = $_GET["id"];
     $query = urlencode('{"idQ":' . $id . '}');
 }
-curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/preguntas?where=$query");
+curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/$table?where=$query");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(

@@ -218,3 +218,46 @@ url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
 line: 1
 column: 2700
 error: SyntaxError: Unexpected token <; 
+[22-02-2017 17:29:09] votación no encontrada.
+[22-02-2017 17:35:41] votación no encontrada.
+[22-02-2017 17:35:47] votación no encontrada.
+[22-02-2017 17:38:40] votación no encontrada.
+[22-02-2017 17:39:06] votación no encontrada.
+[22-02-2017 17:42:17] votación no encontrada.
+[22-02-2017 17:55:19] votación no encontrada.
+[22-02-2017 17:55:23] votación no encontrada.
+[22-02-2017 18:01:38] votación no encontrada.
+[22-02-2017 18:03:27] votación no encontrada.
+[22-02-2017 18:03:30] votación no encontrada.
+[22-02-2017 18:03:37] votación no encontrada.
+[22-02-2017 18:03:45] votación no encontrada.
+[22-02-2017 18:03:50] votación no encontrada.
+[22-02-2017 18:06:19] votación no encontrada.
+[22-02-2017 18:10:55] votación no encontrada.
+[22-02-2017 18:11:21] votación no encontrada.
+[22-02-2017 18:11:29] votación no encontrada.
+[22-02-2017 18:12:36] ; Error: Uncaught TypeError: Cannot read property 0 of undefined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: Cannot read property 0 of undefined; 
+[22-02-2017 18:24:15] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[22-02-2017 18:26:43] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[22-02-2017 18:41:21] ; Error: Uncaught ReferenceError: lang is not defined
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: ReferenceError: lang is not defined; 
+[23-02-2017 12:09:54] ; Error: Uncaught RangeError: Maximum call stack size exceeded
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 51154
+error: RangeError: Maximum call stack size exceeded; 
