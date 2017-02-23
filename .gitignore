@@ -1,4 +1,5 @@
 /nbproject/private/
 /data/*
 !/data/*.*
-error.log
+
+/error.log
