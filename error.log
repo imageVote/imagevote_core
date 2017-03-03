@@ -1,3 +1,66 @@
 [23-02-2017 17:25:23] votación no encontrada.
 [23-02-2017 17:25:34] votación no encontrada.
 [23-02-2017 17:26:10] votación no encontrada.
+[28-02-2017 23:51:56] ; Error: Uncaught SyntaxError: Unexpected token .
+url: http://localhost/wouldyourather/#home
+line: 179
+column: 28
+error: SyntaxError: Unexpected token .; 
+[28-02-2017 23:56:18] ; Error: Uncaught SyntaxError: missing ) after argument list
+url: http://localhost/wouldyourather/#polls
+line: 180
+column: 13
+error: SyntaxError: missing ) after argument list; 
+[01-03-2017 02:08:11] ; Error: Uncaught SyntaxError: Unexpected token )
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 2700
+error: SyntaxError: Unexpected token ); 
+[01-03-2017 22:49:17] ; Error: Uncaught TypeError: this.stored is not a function
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: this.stored is not a function; 
+[01-03-2017 22:51:09] ; Error: Uncaught TypeError: this.stored is not a function
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: this.stored is not a function; 
+[01-03-2017 22:53:06] ; Error: Uncaught TypeError: this.stored is not a function
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: this.stored is not a function; 
+[01-03-2017 22:55:43] ; Error: Uncaught TypeError: this.stored is not a function
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: this.stored is not a function; 
+[01-03-2017 22:56:35] ; Error: Uncaught TypeError: this.stored is not a function
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: this.stored is not a function; 
+[01-03-2017 22:57:39] ; Error: Uncaught TypeError: GamePoll is not a constructor
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 86165
+error: TypeError: GamePoll is not a constructor; 
+[02-03-2017 03:15:45] 123
+[02-03-2017 03:16:27] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[02-03-2017 03:23:30] ; Error: Uncaught RangeError: Maximum call stack size exceeded
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 2764
+error: RangeError: Maximum call stack size exceeded; 
+[02-03-2017 03:23:32] ; Error: Uncaught RangeError: Maximum call stack size exceeded
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 2764
+error: RangeError: Maximum call stack size exceeded; 
+[02-03-2017 03:23:49] ; Error: Uncaught RangeError: Maximum call stack size exceeded
+url: http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js
+line: 1
+column: 2764
+error: RangeError: Maximum call stack size exceeded; 
+[02-03-2017 03:24:28] Para votar encuestas públicas necesitas usar la <u>APP</u>

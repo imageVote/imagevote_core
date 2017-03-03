@@ -4,13 +4,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$table = $_GET["table"];
-$id = $_GET["id"];
-$add = $_GET["add"];
+$table = $_POST["table"];
+$id = $_POST["id"];
+$add = $_POST["add"];
 
 $sub = null;
-if (isset($_GET["sub"])) {
-    $sub = $_GET["sub"];
+if (isset($_POST["sub"])) {
+    $sub = $_POST["sub"];
 }
 
 switch ($add) {

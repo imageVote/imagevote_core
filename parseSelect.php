@@ -6,17 +6,17 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$table = $_GET["table"];
+$table = $_POST["table"];
 
 $lastId = 0;
-if (isset($_GET["lastId"])) {
-    $lastId = $_GET["lastId"];
+if (isset($_POST["lastId"])) {
+    $lastId = $_POST["lastId"];
 }
 
 $ch = curl_init();
 $query = urlencode('{"approved":1,"idQ":{"$gt":' . $lastId . '}}') . "&order=idQ";
-if (isset($_GET["id"])) {
-    $id = $_GET["id"];
+if (isset($_POST["id"])) {
+    $id = $_POST["id"];
     $query = urlencode('{"idQ":' . $id . '}');
 }
 curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/$table?where=$query");
