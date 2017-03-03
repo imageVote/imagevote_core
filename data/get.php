@@ -3,11 +3,11 @@
 //this file way of download will reduce network usage, 
 //and can split core and files environtments?
 
-$url = $_GET["url"];
+$url = $_POST["url"];
 
 $userId = null;
-if (isset($_GET["id"])) {
-    $userId = $_GET["id"];
+if (isset($_POST["id"])) {
+    $userId = $_POST["id"];
 }
 
 

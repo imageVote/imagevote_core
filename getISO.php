@@ -2,7 +2,7 @@
 
 //if loaded
 if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
-    $phone = $_GET["phone"];
+    $phone = $_POST["phone"];
 }
 
 $json_data = file_get_contents('phone/phoneCodes.json');
@@ -17,7 +17,7 @@ if (!isset($phoneCodes[$firstValues])) {
         $firstValues = substr($phone, 0, 2);
 
         if (!isset($phoneCodes[$firstValues])) {
-            $firstValues = substr($phone, 0, 1);            
+            $firstValues = substr($phone, 0, 1);
         }
     }
 }
