@@ -64,3 +64,96 @@ line: 1
 column: 2764
 error: RangeError: Maximum call stack size exceeded; 
 [02-03-2017 03:24:28] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[03-03-2017 23:00:17] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[03-03-2017 23:13:44] Error: Syntax error, unrecognized expression: #votation .votationBox .option_::1
+    at Function.db.error (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12803)
+    at ob (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:18671)
+    at xb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:21334)
+    at Function.db [as find] (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:7465)
+    at n.fn.init.find (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:23571)
+    at n.fn.init (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:24142)
+    at n (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:487)
+    at FillTable.addUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:20)
+    at new FillTable (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:47:14)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:204:26)
+[03-03-2017 23:21:58] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[03-03-2017 23:22:02] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[03-03-2017 23:22:05] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[03-03-2017 23:22:12] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[04-03-2017 00:18:09] TypeError: Cannot read property ownerDocument of undefined
+    at Function.db.contains (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12483)
+    at Function.clone (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:50381)
+    at Object.<anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:53526)
+    at http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:1017
+    at Function.map (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:3860)
+    at n.fn.init.map (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:985)
+    at n.fn.init.clone (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:53502)
+    at Object.draw (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:105:45)
+    at HTMLTableCellElement.eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:79:22)
+    at HTMLTableCellElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+[04-03-2017 00:22:02] RangeError: Maximum call stack size exceeded
+    at RegExp.[Symbol.replace] (<anonymous>)
+    at String.replace (native)
+    at Function.camelCase (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2764)
+    at Function.css (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:62819)
+    at Yb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:61431)
+    at Zb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:61908)
+    at Object.get (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:63244)
+    at Function.css (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:62936)
+    at http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:96025
+    at n.access (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:35475)
+[04-03-2017 12:34:31] RangeError: Maximum call stack size exceeded
+    at RegExp.[Symbol.replace] (<anonymous>)
+    at String.replace (native)
+    at Function.camelCase (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2764)
+    at Function.css (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:62819)
+    at Yb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:61431)
+    at Zb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:61908)
+    at Object.get (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:63244)
+    at Function.css (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:62936)
+    at http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:96025
+    at n.access (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:35475)
+[04-03-2017 13:14:34] SyntaxError: missing ) after argument list
+    at eval (<anonymous>)
+    at http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700
+    at Function.globalEval (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2711)
+    at text script (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:91221)
+    at Qc (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:82938)
+    at x (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:86359)
+    at b (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:90731)
+    at Object.send (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:90835)
+    at Function.ajax (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:86136)
+    at Function.n._evalUrl (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:87356)
+[04-03-2017 17:04:50] votación no encontrada.
+[04-03-2017 17:04:50] no se han recibido datos
+[04-03-2017 21:48:25] Error: Syntax error, unrecognized expression: <div id=gameButtons
+    at Function.db.error (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12803)
+    at ob (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:18671)
+    at xb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:21334)
+    at Function.db [as find] (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:7465)
+    at n.fn.init.find (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:23571)
+    at n.fn.init (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:24142)
+    at n (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:487)
+    at new GamePoll (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:26:19)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:7:30)
+[04-03-2017 21:48:26] Error: Syntax error, unrecognized expression: <div id=gameButtons
+    at Function.db.error (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12803)
+    at ob (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:18671)
+    at xb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:21334)
+    at Function.db [as find] (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:7465)
+    at n.fn.init.find (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:23571)
+    at n.fn.init (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:24142)
+    at n (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:487)
+    at new GamePoll (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:26:19)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:7:30)
+[05-03-2017 03:43:02] SyntaxError: missing ) after argument list
+    at eval (<anonymous>)
+    at http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700
+    at Function.globalEval (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2711)
+    at text script (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:91221)
+    at Qc (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:82938)
+    at x (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:86359)
+    at b (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:90731)
+    at Object.send (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:90835)
+    at Function.ajax (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:86136)
+    at Function.n._evalUrl (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:87356)

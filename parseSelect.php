@@ -33,6 +33,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 $reponse = curl_exec($ch);
+curl_close($ch);
 
 if (false == $reponse) {
     echo '_error in curl: ' . curl_error($ch);
@@ -66,7 +67,5 @@ for ($i = 0; $i < count($arr); $i++) {
         $arr[$i]->second_nvotes
     ]);
 }
-
-curl_close($ch);
 
 echo json_encode($result);
