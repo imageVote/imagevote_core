@@ -64,4 +64,8 @@ if (false == $reponse) {
 }
 curl_close($ch);
 
-echo $reponse;
+$obj = json_decode($reponse);
+$obj->idQ = $_POST["idQ"];
+$obj->add = $add;
+
+echo json_encode($obj);
