@@ -157,3 +157,25 @@ error: RangeError: Maximum call stack size exceeded;
     at Object.send (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:90835)
     at Function.ajax (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:86136)
     at Function.n._evalUrl (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:87356)
+[09-03-2017 02:25:33] votation not found.
+[09-03-2017 02:25:33] no data retrieved
+[09-03-2017 02:26:18] votation not found.
+[09-03-2017 02:26:18] no data retrieved
+[09-03-2017 02:26:26] votation not found.
+[09-03-2017 02:26:26] no data retrieved
+[09-03-2017 02:29:29] votation not found.
+[09-03-2017 02:29:29] no data retrieved
+[09-03-2017 02:29:32] votation not found.
+[09-03-2017 02:29:32] no data retrieved
+[09-03-2017 02:29:34] votation not found.
+[09-03-2017 02:29:34] no data retrieved
+[09-03-2017 02:29:46] votation not found.
+[09-03-2017 02:29:46] no data retrieved
+[09-03-2017 02:37:35] votation not found.
+[09-03-2017 02:37:35] no data retrieved
+[09-03-2017 02:41:24] votation not found.
+[09-03-2017 02:41:24] no data retrieved
+[09-03-2017 02:42:01] no data retrieved
+[09-03-2017 02:42:01] votation not found.
+[09-03-2017 02:43:14] votation not found.
+[09-03-2017 02:43:14] no data retrieved

@@ -14,7 +14,7 @@ if (isset($_POST["lastId"])) {
 }
 
 $ch = curl_init();
-$query = urlencode('{"approved":1,"idQ":{"$gt":' . $lastId . '}}') . "&order=idQ";
+$query = urlencode('{"approved":1,"idQ":{"$gte":' . $lastId . '}}') . "&order=idQ";
 if (isset($_POST["id"])) {
     $id = $_POST["id"];
     $query = urlencode('{"idQ":' . $id . '}');
