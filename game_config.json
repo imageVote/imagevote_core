@@ -1,5 +1,6 @@
 
 {
     "update_frequency": 3,
-    "stars_frequency": 5
+    "stars_frequency": 4,
+    "interstitial_frequency": 5
 }
