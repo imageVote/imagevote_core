@@ -217,15 +217,19 @@ function create($key, $value) {
 
 function update($url, $value) {
     //for public - and private too
-    $arr = json_decode($value);
+    global $public, $userId;
 
-    global $userId;
-    if (!is_array($arr)) {
-        echo "_wrong update data: $value";
-        die();
-    } else if ($arr[0] != $userId) {
-        echo "_wrong user id: $arr[0] != $userId";
-        die();
+//    $arr = json_decode($value);
+//    if (!is_array($arr)) {
+//        echo "_wrong update data: $value";
+//        die();
+//    } else 
+    if ($public) {
+        $arr = explode("|", $value);
+        if ($arr[0] != $userId) {
+            echo "_wrong user id: $arr[0] != $userId";
+            die();
+        }
     }
 
     //file work only
@@ -246,7 +250,7 @@ function update($url, $value) {
     }
     if ($got_lock) {
         // Do stuff with file
-        $len = fwrite($fp, ",$value");
+        $len = fwrite($fp, PHP_EOL . $value);
     } else {
         echo "_error: cant save because file still locked";
         die();

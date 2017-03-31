@@ -309,3 +309,79 @@ checkTextLength@http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.
 [19-03-2017 14:57:03] no se han recibido datos
 [19-03-2017 17:52:17] votación no encontrada.
 [19-03-2017 17:52:17] no se han recibido datos
+[31-03-2017 03:37:46] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[31-03-2017 03:37:53] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[31-03-2017 03:38:47] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[31-03-2017 03:39:20] Para votar encuestas públicas necesitas usar la <u>APP</u>
+[31-03-2017 04:11:54] SyntaxError: Unexpected token , in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:439:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:12:15] SyntaxError: Unexpected token , in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:439:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:13:24] SyntaxError: Unexpected token , in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:439:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:14:13] SyntaxError: Unexpected token | in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:439:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:15:36] SyntaxError: Unexpected token , in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:444:21)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:31:36] SyntaxError: Unexpected token , in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:443:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:33:24] SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:443:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:38:11] SyntaxError: Unexpected token , in JSON at position 13
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:444:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[31-03-2017 04:39:09] SyntaxError: Unexpected token , in JSON at position 13
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:444:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:100:19)
+    at RequestPollByKeyCallback.parseUserVotes (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:155:31)
+    at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
+    at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
+    at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
