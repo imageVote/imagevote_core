@@ -1,6 +1,0 @@
-.idea
-composer.lock
-vendor
-
-# ignore test results
-phpunit-test-results
