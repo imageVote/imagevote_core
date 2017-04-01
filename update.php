@@ -87,19 +87,17 @@ if ($public) {
             mkdir($path, 0755, true);
         }
     }
-    $url = $path . $key;
 
     //
 } else {
     $path .= "private/";
-    $url = $path . $key;
 }
 
 if ("update" == $action) {
-    update($url, $value);
+    update($value);
 //
 } else if ("create" == $action) {
-    create($key, $value);
+    create($value);
 //
 } else if ("newkey" == $action) {
 //nothing else to do
@@ -154,7 +152,7 @@ function newKey() {
     }
 }
 
-function create($key, $value) {
+function create($value) {
     //for public - and private too
     $arr = json_decode($value . "]");
     if (count($arr) > 4) { //q, opts, style, usrs
@@ -162,10 +160,15 @@ function create($key, $value) {
         return;
     }
 
-    global $url;
+    global $path, $key;
+    $url = $path . $key;
     if (file_exists($url)) {
-        echo "_3 file already exists";
-        return;
+        //echo "_3 file already exists";
+        //return;
+        
+        //create new!
+        $key = newKey();
+        $url = $path . $key;
     }
 
     //file work only
@@ -215,9 +218,10 @@ function create($key, $value) {
     }
 }
 
-function update($url, $value) {
+function update($value) {
     //for public - and private too
-    global $public, $userId;
+    global $public, $userId, $path, $key;
+    $url = $path . $key;
 
 //    $arr = json_decode($value);
 //    if (!is_array($arr)) {

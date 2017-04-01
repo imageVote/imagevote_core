@@ -385,3 +385,69 @@ checkTextLength@http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.
     at new RequestPollByKeyCallback (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:130:10)
     at eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:56:17)
     at XMLHttpRequest.xhr.onreadystatechange (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:77:17)
+[01-04-2017 01:40:59] SyntaxError: Unexpected token u in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:450:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:102:19)
+    at loadStoredPolls (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:40:19)
+    at HTMLDivElement.eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:181:13)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+    at l (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:3:3875)
+    at HTMLDivElement.c (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:3:4843)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+    at HTMLDivElement.r.handle (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:37192)
+[01-04-2017 01:42:42] SyntaxError: Unexpected token u in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:450:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:102:19)
+    at loadStoredPolls (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:46:19)
+    at HTMLDivElement.eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:181:13)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+    at l (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:3:3875)
+    at HTMLDivElement.c (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:3:4843)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+    at HTMLDivElement.r.handle (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:37192)
+[01-04-2017 01:42:59] SyntaxError: Unexpected token u in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.parse (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:450:23)
+    at parseData (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:102:19)
+    at loadStoredPolls (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:46:19)
+    at HTMLDivElement.eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:181:13)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+    at l (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:3:3875)
+    at HTMLDivElement.c (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:3:4843)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+    at HTMLDivElement.r.handle (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:37192)
+[01-04-2017 01:45:20] Error: Syntax error, unrecognized expression: #stored__3%20file%20already%20exists-Wk .loader
+    at Function.db.error (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12803)
+    at ob (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:18671)
+    at xb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:21334)
+    at Function.db [as find] (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:7465)
+    at n.fn.init.find (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:23571)
+    at n.fn.init (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:24142)
+    at n (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:487)
+    at loadStoredPolls (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:50:13)
+    at HTMLDivElement.eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:181:13)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+[01-04-2017 01:45:26] Error: Syntax error, unrecognized expression: #stored__3%20file%20already%20exists-Wk .loader
+    at Function.db.error (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12803)
+    at ob (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:18671)
+    at xb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:21334)
+    at Function.db [as find] (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:7465)
+    at n.fn.init.find (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:23571)
+    at n.fn.init (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:24142)
+    at n (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:487)
+    at loadStoredPolls (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:50:13)
+    at HTMLDivElement.eval (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:181:13)
+    at HTMLDivElement.dispatch (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:40491)
+[01-04-2017 02:02:32] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:02:36] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:02:43] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:05:15] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:08:09] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:08:09] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:09:11] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:17:24] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 02:17:24] lo sentimos, esta votación parece haber sido eliminada
+[01-04-2017 20:46:33] votación no encontrada.
+[01-04-2017 20:46:33] no se han recibido datos
