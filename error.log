@@ -4,3 +4,14 @@
 [03-04-2017 00:55:38] no data retrieved
 [03-04-2017 01:18:01] votation not found.
 [03-04-2017 01:18:01] no data retrieved
+[03-04-2017 03:17:25] Error: Syntax error, unrecognized expression: [object Object] .option
+    at Function.db.error (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:12803)
+    at ob (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:18671)
+    at xb (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:21334)
+    at Function.db [as find] (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:7465)
+    at n.fn.init.find (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:23571)
+    at n.fn.init (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:24142)
+    at n (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:487)
+    at new FillTable (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:66:28)
+    at GamePoll.load (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:360:39)
+    at new GamePoll (eval at <anonymous> (http://localhost/wouldyourather/~commons/libs/jquery-1.11.0.min.js:1:2700), <anonymous>:71:14)
