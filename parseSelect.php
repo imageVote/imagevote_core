@@ -40,32 +40,34 @@ if (false == $reponse) {
     die();
 }
 
-try {
-    $decode = json_decode($reponse);
-} catch (Exception $e) {
-    echo $reponse;
-    die();
-}
+echo $reponse;
 
-if(!isset($decode->results)){
-    echo "_error: " + $reponse;
-    die();
-}
+//try {
+//    $decode = json_decode($reponse);
+//} catch (Exception $e) {
+//    echo $reponse;
+//    die();
+//}
+//
+//if(!isset($decode->results)){
+//    echo "_error: " + $reponse;
+//    die();
+//}
+//
+//$arr = $decode->results;
 
-$arr = $decode->results;
-
-//echo "count: " . count($arr);
-$result = [];
-for ($i = 0; $i < count($arr); $i++) {
-    $question = $arr[$i];
-    array_push($result, [
-        $arr[$i]->objectId,
-        $arr[$i]->idQ,
-        $arr[$i]->first,
-        $arr[$i]->second,
-        $arr[$i]->first_nvotes,
-        $arr[$i]->second_nvotes
-    ]);
-}
-
-echo json_encode($result);
+////echo "count: " . count($arr);
+//$result = [];
+//for ($i = 0; $i < count($arr); $i++) {
+////    $question = $arr[$i];
+//    array_push($result, [
+//        $arr[$i]->objectId,
+//        $arr[$i]->idQ,
+//        $arr[$i]->first,
+//        $arr[$i]->second,
+//        $arr[$i]->first_nvotes,
+//        $arr[$i]->second_nvotes
+//    ]);
+//}
+//
+//echo json_encode($result);
