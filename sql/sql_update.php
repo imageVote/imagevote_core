@@ -35,7 +35,7 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
         }
     }
 
-    include 'connect.php';
+    include 'sql/connect.php';
     $pdo = new PDO($connect, $user, $pass);
 
     $q = "UPDATE `$db` SET $sets WHERE id = :id";

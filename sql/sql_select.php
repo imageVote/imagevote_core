@@ -8,7 +8,7 @@ function sql_select($table, $id) {
         die();
     }
 
-    include 'connect.php'; //$connect, $user, $pass
+    include 'sql/connect.php'; //$connect, $user, $pass
     $pdo = new PDO($connect, $user, $pass);
     $q = "SELECT * FROM $table WHERE id = :id";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
