@@ -2,7 +2,7 @@
 RewriteEngine on
 
 RewriteCond %{SERVER_ADDR} !=149.56.98.6
-Redirect ^core/data/private/(.*)$ http://wouldyourather-private.oss-eu-central-1.aliyuncs.com/$1
+RewriteRule ^core/data/private/(.*)$ http://wouldyourather-private.oss-eu-central-1.aliyuncs.com/$1
 
 RewriteCond %{SERVER_ADDR} ==149.56.98.6
-Redirect ^core/data/private/(.*)$ http://wouldyourather-private-test.oss-eu-central-1.aliyuncs.com/$1
+RewriteRule ^core/data/private/(.*)$ http://wouldyourather-private-test.oss-eu-central-1.aliyuncs.com/$1
