@@ -26,9 +26,9 @@ function create($value) {
         echo "_wrong creation data";
         die();
     }
-    echo "1";
+
     global $visibility, $key;
-    echo "2";
+
     require 'sql/sql_create.php';
     echo "3";
     $id = sql_create("in", $value);
