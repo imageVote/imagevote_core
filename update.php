@@ -1,8 +1,9 @@
 <?php
 
+echo "hi";
+
 //throw new Exception('Sorry, create polls is temporarily disabled. ', 'Sorry, create polls is temporarily disabled. ');
 //throw new Exception('Your app version is old. Please update. ', 'Your app version is old. Please update. ');
-
 
 include 'upload.php';
 
@@ -12,7 +13,7 @@ if ("update" == $action) {
 } else if ("create" == $action) {
     create($value);
 //
-} else if ("newkey" == $action) {
+//} else if ("newkey" == $action) {
 //nothing else to do
 //
 } else {
@@ -22,15 +23,13 @@ if ("update" == $action) {
 $key = "";
 
 function create($value) {
-    global $key;
-    
     $arr = json_decode($value . "]");
     if (count($arr) > 4) { //q, opts, style, usrs
         echo "_wrong creation data";
-        return;
+        die();
     }
-
-    global $visibility;
+    
+    global $visibility, $key;
 
     require 'sql/sql_create.php';
     $id = sql_create("in", $value);
