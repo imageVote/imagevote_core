@@ -8,7 +8,6 @@ function sql_create($table, $data, $num_answers = 0) {
     require '../sql/connect.php'; //$connect, $user, $pass
     echo "b";
     $pdo = new PDO($connect, $user, $pass);
-    echo "c";
     $q = "INSERT INTO `$table` (data) VALUES (:data)";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
     $sth->bindParam(":data", $data);

@@ -1,5 +1,5 @@
 <?php
-
+echo "12345";
 $connect = "mysql:host=localhost;port=3306;dbname=wouldyourather";
 $user = "root";
 $pass = "&MOVy1PV";
@@ -14,3 +14,4 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
     $user = "test";
     $pass = "testing";
 }
+echo "888";
