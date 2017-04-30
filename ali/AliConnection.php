@@ -16,13 +16,8 @@ class AliConnection {
         $this->subdomain = "wouldyourather-$visibility";
         $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
 
-        //local tests:
-        $whitelist = array(
-            '127.0.0.1',
-            '::1',
-            '149.56.98.6'
-        );
-        if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
+        require 'whitelist.php';
+        if ($whitelisted) {
             $this->subdomain = "wouldyourather-$visibility-test";
             $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
         }
