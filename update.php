@@ -37,7 +37,7 @@ function create($value) {
     echo "5";
     global $base, $base10;
     $key = convBase($id, $base10, $base);
-    echo "6";
+    echo "6 ($key) ";
     require 'ali/ali_append.php';
     echo "7";
     ali_append($key, $value, $visibility);
