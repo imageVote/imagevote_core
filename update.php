@@ -1,12 +1,10 @@
 <?php
 
-echo "1";
-
 //throw new Exception('Sorry, create polls is temporarily disabled. ', 'Sorry, create polls is temporarily disabled. ');
 //throw new Exception('Your app version is old. Please update. ', 'Your app version is old. Please update. ');
 
 include 'upload.php';
-echo "2";
+
 if ("update" == $action) {
     update($value);
 //
@@ -28,16 +26,17 @@ function create($value) {
         echo "_wrong creation data";
         die();
     }
-    echo "3";
+    echo "1";
     global $visibility, $key;
-
+    echo "2";
     require 'sql/sql_create.php';
+    echo "3";
     $id = sql_create("in", $value);
-echo "4";
+    echo "4";
+
     require "convBase.php";
     global $base, $base10;
     $key = convBase($id, $base10, $base);
-echo "5";
     require 'ali/ali_append.php';
     ali_append($key, $value, $visibility);
 }
