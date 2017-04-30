@@ -4,9 +4,9 @@ function sql_create($table, $data, $num_answers = 0) {
     if (empty($table)) {
         $table = "private";
     }
-    echo 1;
+
     require 'sql/connect.php'; //$connect, $user, $pass
-    echo 2;
+    echo "$connect, $user, $pass";
     $pdo = new PDO($connect, $user, $pass);
     echo 3;
     $q = "INSERT INTO `$table` (data) VALUES (:data)";
