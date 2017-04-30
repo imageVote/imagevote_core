@@ -14,4 +14,3 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
     $user = "test";
     $pass = "testing";
 }
-echo "888";
