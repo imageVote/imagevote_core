@@ -30,15 +30,18 @@ function create($value) {
     global $visibility, $key;
 
     require 'sql/sql_create.php';
-    echo "3";
     $id = sql_create($value);
     echo "4";
 
     require "convBase.php";
+    echo "5";
     global $base, $base10;
     $key = convBase($id, $base10, $base);
+    echo "6";
     require 'ali/ali_append.php';
+    echo "7";
     ali_append($key, $value, $visibility);
+    echo "8";
 }
 
 function update($value) {
