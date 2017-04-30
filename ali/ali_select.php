@@ -1,6 +1,6 @@
 <?php
 
-require_once "ali/AliConnection.php";
+require "ali/AliConnection.php";
 
 //$file = "file4.txt"; //$body = "0";
 function ali_select($visibility, $file) {
