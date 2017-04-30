@@ -5,4 +5,4 @@ RewriteEngine on
 #Redirect 301 ^(.*)/core/data/private/(.*)$ http://wouldyourather-private.oss-eu-central-1.aliyuncs.com/$2
 
 #RewriteCond %{SERVER_ADDR} ==149.56.98.6
-Redirect 301 ^(.*)/core/data/private/(.*)$ http://wouldyourather-private-test.oss-eu-central-1.aliyuncs.com/$2
+Redirect 301 ^/core/data/private/(.*)$ http://wouldyourather-private-test.oss-eu-central-1.aliyuncs.com/$1
