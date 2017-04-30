@@ -11,9 +11,9 @@ if ("update" == $action) {
 } else if ("create" == $action) {
     create($value);
 //
-//} else if ("newkey" == $action) {
+} else if ("newkey" == $action) {
 //nothing else to do
-//
+
 } else {
     die("not action defined");
 }
