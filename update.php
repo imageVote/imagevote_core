@@ -19,11 +19,11 @@ if ("update" == $action) {
 }
 
 function create($value) {
-    $arr = json_decode($value . "]");
-    if (count($arr) > 4) { //q, opts, style, usrs
-        echo "_wrong creation data";
-        die();
-    }
+//    $arr = json_decode($value . "]");
+//    if (count($arr) > 4) { //q, opts, style, usrs
+//        echo "_wrong creation data";
+//        die();
+//    }
 
     global $visibility, $key;
 
