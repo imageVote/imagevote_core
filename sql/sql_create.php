@@ -1,6 +1,6 @@
 <?php
 
-function sql_create($table, $data, $num_answers = 0) {
+function sql_create($data, $table = "private", $num_answers = 0) {
     if (empty($table)) {
         $table = "private";
     }

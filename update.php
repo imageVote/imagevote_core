@@ -31,7 +31,7 @@ function create($value) {
 
     require 'sql/sql_create.php';
     echo "3";
-    $id = sql_create("in", $value);
+    $id = sql_create($value);
     echo "4";
 
     require "convBase.php";

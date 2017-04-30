@@ -11,7 +11,11 @@ if (count($arr) > 4) { //q, opts, style, usrs
 }
 
 require_once 'sql/sql_create.php';
-$id = sql_create("in", $value);
+$table = null;
+if(isset($_POST["table"])){
+    $table = $_POST["table"];
+}
+$id = sql_create($value, $table);
 
 require_once("convBase.php");
 $key = convBase($id, $base10, $base);
