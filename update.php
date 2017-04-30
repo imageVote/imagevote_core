@@ -19,6 +19,8 @@ if ("update" == $action) {
     die("not action defined");
 }
 
+$key = "";
+
 function create($value) {
     global $key;
     
