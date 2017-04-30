@@ -20,6 +20,8 @@ if ("update" == $action) {
 }
 
 function create($value) {
+    global $key;
+    
     $arr = json_decode($value . "]");
     if (count($arr) > 4) { //q, opts, style, usrs
         echo "_wrong creation data";
@@ -40,7 +42,7 @@ function create($value) {
 }
 
 function update($value) {
-    global $public, $userId, $visibility;
+    global $public, $userId, $visibility, $key;
     $key = $_POST["key"];
 
     if ($public) {
@@ -67,3 +69,5 @@ function update($value) {
     require 'ali/ali_append.php';
     ali_append($key, PHP_EOL . $value, $visibility);
 }
+
+echo $key;
