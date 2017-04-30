@@ -18,8 +18,6 @@ if ("update" == $action) {
     die("not action defined");
 }
 
-$key = "";
-
 function create($value) {
     $arr = json_decode($value . "]");
     if (count($arr) > 4) { //q, opts, style, usrs
@@ -31,17 +29,12 @@ function create($value) {
 
     require 'sql/sql_create.php';
     $id = sql_create($value);
-    echo "4";
 
     require "convBase.php";
-    echo "5";
     global $base, $base10;
     $key = convBase($id, $base10, $base);
-    echo "6 ($key) ";
     require 'ali/ali_append.php';
-    echo "7";
     ali_append($key, $value, $visibility);
-    echo "8";
 }
 
 function update($value) {
