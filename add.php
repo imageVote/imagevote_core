@@ -3,7 +3,9 @@
 include 'upload.php';
 
 $key = $_POST["key"];
-
+if(true){ //if private
+    $key = substr($key, 1, -1);
+}
 
 if ($public) {
     $arr = explode("|", $value);
