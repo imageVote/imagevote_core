@@ -19,7 +19,7 @@ $remove = json_decode($_POST["remove"]);
 
 require_once("convBase.php");
 $id = convBase($key, $base, $base10);
-sql_update("in", $id, $add, $remove);
+sql_update("private", $id, $add, $remove);
 
 require_once 'ali/ali_append.php';
 ali_append($key, PHP_EOL . $value, $visibility);
