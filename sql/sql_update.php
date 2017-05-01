@@ -45,7 +45,7 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
     $sth->execute() or die(implode(":",$sth->errorInfo()) . " in $q");
 
     if(0 == $sth->rowCount()){
-        echo "ERROR_SQL_UPDATE $q";
+        echo "ERROR_SQL_UPDATE $q $id";
         die();
     }
 }
