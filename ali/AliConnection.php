@@ -12,7 +12,7 @@ class AliConnection {
     //debug:
     public $hash;
 
-    public function __construct($visibility) {
+    public function __construct($visibility = "private") {
         $this->subdomain = "wouldyourather-$visibility";
         $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
 

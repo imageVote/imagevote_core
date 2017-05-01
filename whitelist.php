@@ -9,6 +9,7 @@ $server_whitelist = array(
 );
 
 $whitelisted = false;
-if (in_array($_SERVER['REMOTE_ADDR'], $whitelist) || in_array($_SERVER['SERVER_ADDR'], $server_whitelist)) {
+if (isset($_SERVER['REMOTE_ADDR']) && isset($_SERVER['SERVER_ADDR']) && //if manually on server
+        (in_array($_SERVER['REMOTE_ADDR'], $whitelist) || in_array($_SERVER['SERVER_ADDR'], $server_whitelist))) {
     $whitelisted = true;
 }
