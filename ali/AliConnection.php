@@ -21,6 +21,10 @@ class AliConnection {
             $this->subdomain = "wouldyourather-$visibility-test";
             $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
         }
+        
+        //override migration
+        $this->subdomain = "wouldyourather-$visibility";
+        $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
 
         //data
         $this->time = time() + 20;
