@@ -6,12 +6,12 @@
 //
 //require 'whitelist.php';
 //if ($whitelisted) {
-    $connect = "mysql:host=47.91.75.28;port=3306;dbname=test_wouldyourather";
-    $user = "test";
-    $pass = "testing";
+//    $connect = "mysql:host=47.91.75.28;port=3306;dbname=test_wouldyourather";
+//    $user = "test";
+//    $pass = "testing";
 //}
 
 //
-//$connect = "mysql:host=47.91.75.28;port=3306;dbname=wouldyourather";
-//$user = "externo";
-//$pass = "&MOVy1PV";
+$connect = "mysql:host=47.91.75.28;port=3306;dbname=wouldyourather";
+$user = "externo";
+$pass = "&MOVy1PV";
