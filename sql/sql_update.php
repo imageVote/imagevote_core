@@ -34,6 +34,10 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
             $sets .= ",";
         }
     }
+    
+    if("" == $sets){
+        return;
+    }
 
     include 'sql/connect.php';
     $pdo = new PDO($connect, $user, $pass);
