@@ -39,10 +39,10 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
     $pdo = new PDO($connect, $user, $pass);
 
     $q = "UPDATE `$db` SET $sets WHERE id = :id";
-    $sth = $pdo->prepare($q) or die(implode(":",$sth->errorInfo()) . " in $q");
+    $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
 
     $sth->bindValue(":id", $id);
-    $sth->execute() or die(implode(":",$sth->errorInfo()) . " in $q");
+    $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
 
     if(0 == $sth->rowCount()){
         echo "ERROR_SQL_UPDATE $q $id";

@@ -12,18 +12,18 @@ class AliConnection {
     //debug:
     public $hash;
 
-    public function __construct($visibility = "private") {
-        $this->subdomain = "wouldyourather-$visibility";
-        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
-
-        require 'whitelist.php';
-        if ($whitelisted) {
-            $this->subdomain = "wouldyourather-$visibility-test";
-            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
-        }
+    public function __construct($table = "private") {
+//        $this->subdomain = "wouldyourather-$table";
+//        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
+//
+//        require 'whitelist.php';
+//        if ($whitelisted) {
+//            $this->subdomain = "wouldyourather-$table-test";
+//            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
+//        }
         
         //override migration
-        $this->subdomain = "wouldyourather-$visibility";
+        $this->subdomain = "wouldyourather-$table";
         $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
 
         //data

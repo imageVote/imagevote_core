@@ -1,30 +1,50 @@
 <?php
 
-include 'upload.php';
+require 'upload.php';
+require "convBase.php";
 
-$key = $_POST["key"];
-if(true){ //if private
-    $key64 = substr($key, 1, -1);
+
+$table = "private";
+if (isset($_POST["table"])) {
+    $table = $_POST["table"];
 }
 
-if ($public) {
-    $arr = explode("|", $value);
-    if ($arr[0] != $userId) {
-        echo "_wrong user id: $arr[0] != $userId";
-        die();
+//id
+if (isset($_POST["idQ"])) {
+    $id = $_POST["idQ"];
+    $key = convBase($id, $base10, $base);
+    //
+} else if ($_POST["key"]) {
+    $key = $_POST["key"];
+    $keyArr = explode("-", $key);
+    if (count($keyArr) > 1 && !empty($keyArr[0])) {
+        $table = $keyArr[0];
     }
+
+    if ("private" == $table) { //if private
+        $key64 = substr($key, 1, -1);
+    } else {
+        $key64 = $keyArr[count($keyArr) - 1];
+    }
+
+    require_once("convBase.php");
+    $id = convBase($key64, $base, $base10);
 }
 
-require_once 'sql/sql_update.php';
+
+require 'sql/sql_update.php';
 $add = json_decode($_POST["add"]);
-$remove = json_decode($_POST["remove"]);
+$sub = array();
+if (isset($_POST["sub"])) {
+    $sub = json_decode($_POST["sub"]);
+}
 
-require_once("convBase.php");
-$id = convBase($key64, $base, $base10);
-sql_update("private", $id, $add, $remove);
+sql_update($table, $id, $add, $sub);
 
-require_once 'ali/ali_append.php';
-ali_append($key, PHP_EOL . $value, $visibility);
+require 'ali/ali_append.php';
+$data = $_POST["userId"] . "|" . $_POST["data"];
+ali_append($key, PHP_EOL . $data, $table);
 
 
+//use echo check to retrieve errors!
 echo $key;

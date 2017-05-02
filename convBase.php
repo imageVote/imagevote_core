@@ -8,6 +8,7 @@ function convBase($numberInput, $fromBaseInput, $toBaseInput) {
     $toLen = strlen($toBaseInput);
     $numberLen = strlen($numberInput);
     $retval = '';
+    
     if ($toBaseInput == '0123456789') {
         $retval = 0;
         for ($i = 1; $i <= $numberLen; $i++) {
@@ -15,17 +16,21 @@ function convBase($numberInput, $fromBaseInput, $toBaseInput) {
         }
         return $retval;
     }
+    
     if ($fromBaseInput != '0123456789') {
         $base10 = convBase($numberInput, $fromBaseInput, '0123456789');
     } else {
         $base10 = $numberInput;
     }
+    
     if ($base10 < strlen($toBaseInput)) {
         return $toBase[$base10];
     }
+    
     while ($base10 != '0') {
         $retval = $toBase[bcmod($base10, $toLen)] . $retval;
         $base10 = bcdiv($base10, $toLen, 0);
     }
+    
     return $retval;
 }

@@ -19,12 +19,14 @@ $id = sql_create($value, $table);
 
 require "convBase.php";
 $key = convBase($id, $base10, $base);
-if (true) { //TODO: if private poll:
+if (null == $table) { //TODO: if private poll:
     $key = "-$key" . substr(rtrim(base64_encode($key), '='), -1);
+}else{
+    $key = "$table-$key";
 }
 
 require_once 'ali/ali_append.php';
-ali_append($key, $value, $visibility);
+ali_append($key, $value, $table);
 
 
 echo $key;

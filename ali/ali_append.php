@@ -3,9 +3,9 @@
 require "ali/AliConnection.php";
 
 //$file = "file4.txt"; //$body = "0";
-function ali_append($file, $body, $visibility) {
+function ali_append($file, $body, $table) {
     
-    $con = new AliConnection($visibility);    
+    $con = new AliConnection($table);
     $accessKeySecret = $con->accessKeySecret;
     $domain = $con->domain;
     $data = $con->data;

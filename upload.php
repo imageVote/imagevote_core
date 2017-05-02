@@ -8,7 +8,7 @@ $base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 $base10 = '0123456789';
 
 //id here can be the public or the private
-$userId = $_POST["id"];
+$userId = $_POST["userId"];
 
 if (isset($_POST["action"])) {
     $action = $_POST["action"];
