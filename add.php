@@ -42,7 +42,12 @@ if (isset($_POST["sub"])) {
 sql_update($table, $id, $add, $sub);
 
 require 'ali/ali_append.php';
-$data = $_POST["userId"] . "|" . $_POST["data"];
+
+$data = $_POST["data"];
+if(!strpos($_POST["data"], "|")){
+    $data = $_POST["userId"] . "|" . $_POST["data"];
+}
+
 ali_append($key, PHP_EOL . $data, $table);
 
 
