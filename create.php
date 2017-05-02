@@ -10,14 +10,14 @@ include 'upload.php';
 //    return;
 //}
 
-$value = $_POST["value"];
+$data = $_POST["data"];
 
 require_once 'sql/sql_create.php';
 $table = "private";
 if (isset($_POST["table"])) {
     $table = $_POST["table"];
 }
-$id = sql_create($value, $table);
+$id = sql_create($data, $table);
 
 require "convBase.php";
 $key = convBase($id, $base10, $base);
@@ -28,7 +28,7 @@ if (null == $table || "private" == $table) { //TODO: if private poll:
 }
 
 require_once 'ali/ali_append.php';
-ali_append($key, $value, $table);
+ali_append($key, $data, $table);
 
 
 echo $key;
