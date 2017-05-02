@@ -32,14 +32,14 @@ if (isset($_POST["idQ"])) {
 }
 
 
-require 'sql/sql_update.php';
-$add = json_decode($_POST["add"]);
-$sub = array();
-if (isset($_POST["sub"])) {
-    $sub = json_decode($_POST["sub"]);
-}
-
-sql_update($table, $id, $add, $sub);
+//android ERROR:
+//require 'sql/sql_update.php';
+//$add = json_decode($_POST["add"]);
+//$sub = array();
+//if (isset($_POST["sub"])) {
+//    $sub = json_decode($_POST["sub"]);
+//}
+//sql_update($table, $id, $add, $sub);
 
 require 'ali/ali_append.php';
 

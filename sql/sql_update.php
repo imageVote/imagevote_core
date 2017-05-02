@@ -35,7 +35,7 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
         }
     }
     
-    if("" == $sets){
+    if(empty($sets)){
         return;
     }
 
