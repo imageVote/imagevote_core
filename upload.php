@@ -13,10 +13,6 @@ if(isset($_POST["userId"])){
     $userId = $_POST["userId"];
 }
 
-if (isset($_POST["action"])) {
-    $action = $_POST["action"];
-}
-
 if (isset($_POST["value"])) {
     $value = $_POST["value"];
 }
