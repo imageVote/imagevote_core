@@ -6,8 +6,9 @@
 if (isset($_POST["action"])) {
     $action = $_POST["action"];
 }
-
-
+$key = "0"; //old android
+        
+        
 if ("update" == $action) {
     update();
 //
@@ -15,7 +16,7 @@ if ("update" == $action) {
     create();
 //
 } else if ("newkey" == $action) {
-//nothing else to do
+    newKey();
 
 } else {
     die("not action defined");
@@ -27,6 +28,10 @@ function create() {
 
 function update() {
     include 'add.php';
+}
+
+function newKey(){
+    
 }
 
 echo $key;
