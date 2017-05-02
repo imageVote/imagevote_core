@@ -13,7 +13,7 @@ include 'upload.php';
 $value = $_POST["value"];
 
 require_once 'sql/sql_create.php';
-$table = null;
+$table = "private";
 if (isset($_POST["table"])) {
     $table = $_POST["table"];
 }
