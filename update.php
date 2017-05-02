@@ -6,9 +6,9 @@
 if (isset($_POST["action"])) {
     $action = $_POST["action"];
 }
-$key = "0"; //old android
         
-        
+ob_start();
+
 if ("update" == $action) {
     update();
 //
@@ -34,4 +34,11 @@ function newKey(){
     
 }
 
-echo $key;
+//old android
+$block = ob_get_contents();
+ob_end_clean();
+
+if(empty($block)){
+    echo 0;
+}
+
