@@ -4,11 +4,13 @@ include 'upload.php';
 
 
 //for public - and private too
-$arr = json_decode($value . "]");
-if (count($arr) > 4) { //q, opts, style, usrs
-    echo "_wrong creation data";
-    return;
-}
+//$arr = json_decode($value . "]");
+//if (count($arr) > 4) { //q, opts, style, usrs
+//    echo "_wrong creation data";
+//    return;
+//}
+
+$value = $_POST["value"];
 
 require_once 'sql/sql_create.php';
 $table = null;

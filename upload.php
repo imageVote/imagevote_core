@@ -13,10 +13,6 @@ if(isset($_POST["userId"])){
     $userId = $_POST["userId"];
 }
 
-if (isset($_POST["value"])) {
-    $value = $_POST["value"];
-}
-
 //define public before newKey
 $public = isset($_POST["public"]);
 
