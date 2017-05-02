@@ -40,5 +40,7 @@ ob_end_clean();
 
 if(empty($block)){
     echo 0;
+}else{
+    echo $block;
 }
 
