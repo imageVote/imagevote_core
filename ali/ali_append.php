@@ -28,14 +28,17 @@ function ali_append($file, $body, $table) {
     foreach ($headers as $header) {
         if (stripos($header, 'x-oss-next-append-position:') !== false) {
             $length = trim(explode(":", $header)[1]);
+            if("" === $length){
+                die('!isset($length)');
+            }
             break;
         }
     }
-
+    
     //CURL APPEND:
     $path = "$file?append&position=$length";
     $data['Signature'] = $con->sign("POST", $time, $path, "application/x-www-form-urlencoded");
-
+    
     curl_setopt($ch, CURLOPT_URL, "http://$domain/$path&" . http_build_query($data));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //prevent auto-echo return
     curl_setopt($ch, CURLOPT_HEADER, 0);

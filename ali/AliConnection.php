@@ -13,6 +13,10 @@ class AliConnection {
     public $hash;
 
     public function __construct($table = "private") {
+        if (empty($table)) {
+            $table = "private";
+        }
+
 //        $this->subdomain = "wouldyourather-$table";
 //        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
 //
@@ -21,7 +25,6 @@ class AliConnection {
 //            $this->subdomain = "wouldyourather-$table-test";
 //            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
 //        }
-        
         //override migration
         $this->subdomain = "wouldyourather-$table";
         $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";

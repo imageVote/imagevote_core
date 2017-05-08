@@ -1,13 +1,10 @@
 <?php
 
-$base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-$base10 = '0123456789';
+$table = $_POST["table"];
 
 $id = null;
 if (isset($_POST["id"])) {
-    $key = $_POST["id"];
-    require "convBase.php";
-    $id = convBase($key, $base, $base10);
+    $id = $_POST["id"];
 }
 
 $lastId = null;
@@ -15,17 +12,29 @@ if (isset($_POST["lastId"])) {
     $lastId = $_POST["lastId"];
 }
 
-$data = null;
-if (isset($_POST["table"])) {
-    $table = $_POST["table"];
-    require "sql/sql_select.php";
-    $data = sql_select($table, $id, $lastId);
+$keyId = null;
+if (isset($_POST["key"])) {
+    $keyId = $_POST["key"];
 }
 
-if (null != $data) {
-    echo json_encode($data);
-    die();
+require "sql/sql_select.php";
+$data = sql_select($table, $id, $lastId);
+
+//update sql from file (only 1 poll)
+if (null === $lastId) {
+    require 'fileToSql.php';
+    $updated = false;
+
+    $row = $data[0];
+    if (($row["v0"] + $row["v1"]) < 100 || time() - strtotime($row['t']) > 86400) { //24h
+        fileToSql($table, $id, $keyId);
+        $updated = true;
+    }
+
+    if ($updated) {
+        $data = sql_select($table, $id, $lastId);
+    }
 }
 
-//not in db
-
+//get sql data:
+echo json_encode($data);

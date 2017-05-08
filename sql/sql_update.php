@@ -10,7 +10,7 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
         if (!preg_match('/^[0-9]*$/', $num)) {
             die("ERROR_BAD_PARAM $num");
         }
-        $answer = "answer{$num}";
+        $answer = "v{$num}";
         $sets .= " $answer = $answer + 1";
         if (count($answers_add) + 1 < $i) {
             $sets .= ",";
@@ -28,7 +28,7 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
         if (!preg_match('/^[0-9]*$/', $num)) {
             die("ERROR_BAD_PARAM $num");
         }
-        $answer = "answer{$num}";
+        $answer = "v{$num}";
         $sets .= " $answer = $answer - 1";
         if (count($answers_add) + 1 < $i) {
             $sets .= ",";

@@ -12,20 +12,20 @@ function sql_select($table, $id = null, $lastId = null) {
     $pdo = new PDO($connect, $user, $pass);
 
     $q = "SELECT * FROM `$table`";
-    if ($id) {
+    if (is_numeric($id)) {
         $q .= " WHERE id = :id";
-    }else if($lastId){
-        $q .= " WHERE id > :lastId";
+    } else if (is_numeric($lastId)) {
+        $q .= " WHERE id >= :lastId";
     }
-    
+
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
-    if ($id) {
+    if (is_numeric($id)) {
         $sth->bindParam(":id", $id);
-    }else if ($lastId) {
+    } else if (is_numeric($lastId)) {
         $sth->bindParam(":lastId", $lastId);
     }
 
-    $result = $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
+    $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
 
     $arr = array();
     while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {

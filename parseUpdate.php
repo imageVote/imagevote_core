@@ -6,35 +6,37 @@ error_reporting(E_ALL);
 
 $table = $_POST["table"];
 $id = $_POST["id"];
-$add = $_POST["add"];
+$add = json_decode($_POST["add"]);
 
 $sub = null;
 if (isset($_POST["sub"])) {
-    $sub = $_POST["sub"];
+    $sub = json_decode($_POST["sub"]);
 }
 
-switch ($add) {
-    case 0:
-        $prefix_add = "first";
-        break;
-    case 1:
-        $prefix_add = "second";
-        break;
+
+$pos = ["first", "second"];
+
+//$post_values = '';
+//force get all votes values
+$post_values = '"first_nvotes":{"__op":"Increment","amount":0}, "second_nvotes":{"__op":"Increment","amount":0},';
+
+for ($i = 0; $i < count($add); $i++) {
+    $post_values .= '"' . $pos[$add[$i]] . '_nvotes":{"__op":"Increment","amount":1}';
+    if (count($add) > $i + 1) {
+        $post_values .= ",";
+    }
 }
 
-switch ($sub) {
-    case 0:
-        $prefix_sub = "first";
-        break;
-    case 1:
-        $prefix_sub = "second";
-        break;
-}
-
-$post_values = '"' . $prefix_add . '_nvotes":{"__op":"Increment","amount":1}';
 if (null != $sub) {
-    $post_values .= ',"' . $prefix_sub . '_nvotes":{"__op":"Increment","amount":-1}';
+    $post_values .= ",";
+    for ($i = 0; $i < count($sub); $i++) {
+        $post_values .= '"' . $pos[$sub[$i]] . '_nvotes":{"__op":"Increment","amount":-1}';
+        if (count($sub) > $i + 1) {
+            $post_values .= ",";
+        }
+    }
 }
+
 $post = '{' . $post_values . '}';
 
 
@@ -66,6 +68,5 @@ curl_close($ch);
 
 $obj = json_decode($reponse);
 $obj->idQ = $_POST["idQ"];
-$obj->add = $add;
 
 echo json_encode($obj);
