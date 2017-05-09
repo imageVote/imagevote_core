@@ -1,7 +1,7 @@
 
 {
     "update_frequency": 3,
-    "stars_frequency": 4,
+    "stars_frequency": 8,
     "interstitial_start": 2,
     "interstitial_frequency": 4
 }
