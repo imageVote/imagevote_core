@@ -26,17 +26,14 @@ require "sql/sql_select.php";
 $data = sql_select($table, $id, $lastId, $arrIds);
 
 //update sql from file (only 1 poll)
-if (null !== $id || null !== $keyId) {
+if (null !== $id || null !== $keyId && isset($data[0])) {
     require 'fileToSql.php';
-    $updated = false;
 
     $row = $data[0];
     if (($row["v0"] + $row["v1"]) < 100 || time() - strtotime($row['t']) > 86400) { //24h
         fileToSql($table, $id, $keyId);
-        $updated = true;
-    }
-
-    if ($updated) {
+        
+        //if updated
         $data = sql_select($table, $id, $lastId);
     }
 }
