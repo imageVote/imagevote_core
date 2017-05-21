@@ -1,6 +1,9 @@
 <?php
 
-$table = $_POST["table"];
+$table = "";
+if (isset($_POST["table"])) {
+    $table = $_POST["table"];
+}
 
 $id = null;
 if (isset($_POST["id"])) {
