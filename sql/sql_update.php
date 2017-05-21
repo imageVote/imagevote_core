@@ -1,6 +1,6 @@
 <?php
 
-require 'sql/connect.php'; //$connect, $user, $pass
+require_once 'sql/connect.php'; //$connect, $user, $pass
 
 function sql_update($db, $id, $answers_add, $answers_remove) {
     $sets = "";
