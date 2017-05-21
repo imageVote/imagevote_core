@@ -49,7 +49,7 @@ if (in_array($table, $parse)) {
         die();
     }
 
-    include 'sql/connect.php'; //$connect, $user, $pass
+    require_once 'sql/connect.php'; //$connect, $user, $pass
     $pdo = new PDO($connect, $user, $pass);
     $q = "SELECT id, v0, v1, reports FROM `$table`";
     $sth = $pdo->prepare($q);

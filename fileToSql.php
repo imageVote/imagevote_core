@@ -57,7 +57,7 @@ function fileToSql($table, $id, $key = null) {
     }
 
     //update
-    include 'sql/connect.php';
+    require_once 'sql/connect.php';
     $pdo = new PDO($connect, $user, $pass);
         
     $q = "UPDATE `$table_string` SET $set WHERE id = :id";
