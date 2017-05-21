@@ -1,5 +1,7 @@
 <?php
 
+require_once 'sql/connect.php';
+
 $base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 $base10 = '0123456789';
 require "convBase.php";
@@ -56,8 +58,8 @@ function fileToSql($table, $id, $key = null) {
         $total += $res[$i];
     }
 
-    //update
-    require_once 'sql/connect.php';
+    //update    
+    global $connect, $user, $pass;
     $pdo = new PDO($connect, $user, $pass);
         
     $q = "UPDATE `$table_string` SET $set WHERE id = :id";
