@@ -27,16 +27,20 @@ $data = sql_select($table, $id, $lastId, $arrIds);
 
 //update sql from file (only 1 poll)
 if (null !== $id || null !== $keyId && isset($data[0])) {
-    require 'fileToSql.php';
 
     $row = $data[0];
     if (($row["v0"] + $row["v1"]) < 100 || time() - strtotime($row['t']) > 86400) { //24h
+        require 'fileToSql.php';
         fileToSql($table, $id, $keyId);
-        
+
         //if updated
         $data = sql_select($table, $id, $lastId);
     }
 }
 
 //get sql data:
-echo json_encode($data);
+try {
+    echo json_encode($data);
+} catch (Exception $e) {
+    echo $data;
+}
