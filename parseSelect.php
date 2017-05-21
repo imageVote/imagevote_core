@@ -8,17 +8,37 @@ error_reporting(E_ALL);
 
 $table = $_POST["table"];
 
+if(false === strpos($table, "preguntas")){
+    if("es" == $table){
+        $table = "";
+    }
+    $table = "preguntas" . strtoupper($table);
+}
+
 $lastId = 0;
 if (isset($_POST["lastId"])) {
     $lastId = $_POST["lastId"];
+    $query = urlencode('{"approved":1,"idQ":{"$gte":' . $lastId . '}}') . "&order=idQ";
 }
 
-$ch = curl_init();
-$query = urlencode('{"approved":1,"idQ":{"$gte":' . $lastId . '}}') . "&order=idQ";
 if (isset($_POST["id"])) {
     $id = $_POST["id"];
     $query = urlencode('{"idQ":' . $id . '}');
 }
+
+if (isset($_POST["objectId"])) {
+    $objectId = $_POST["objectId"];
+    $query = urlencode('{"objectId":"' . $objectId . '"}');
+}
+
+$arrIds = 0;
+if (isset($_POST["arrIds"])) {
+    $arrIds = $_POST["arrIds"];
+    $query = urlencode('{"idQ":{"$in":[' . $arrIds . ']}}');
+}
+
+
+$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://api.parse.buddy.com/parse/classes/$table?where=$query");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 

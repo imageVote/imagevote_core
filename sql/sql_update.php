@@ -1,8 +1,9 @@
 <?php
 
+require 'sql/connect.php'; //$connect, $user, $pass
+
 function sql_update($db, $id, $answers_add, $answers_remove) {
     $sets = "";
-    $params = array();
 
     //add
     for ($i = 0; $i < count($answers_add); $i++) {
@@ -39,7 +40,7 @@ function sql_update($db, $id, $answers_add, $answers_remove) {
         return;
     }
 
-    include 'sql/connect.php';
+    global $connect, $user, $pass;
     $pdo = new PDO($connect, $user, $pass);
 
     $q = "UPDATE `$db` SET $sets WHERE id = :id";

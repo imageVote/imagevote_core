@@ -1,6 +1,8 @@
 <?php
 
-function sql_select($table, $id = null, $lastId = null) {
+require 'sql/connect.php'; //$connect, $user, $pass
+
+function sql_select($table, $id = null, $lastId = null, $arrIds = null) {
     if (empty($table)) {
         $table = "private";
     } else if (2 != strlen($table)) {
@@ -8,7 +10,7 @@ function sql_select($table, $id = null, $lastId = null) {
         die();
     }
 
-    include 'sql/connect.php'; //$connect, $user, $pass
+    global $connect, $user, $pass;
     $pdo = new PDO($connect, $user, $pass);
 
     $q = "SELECT * FROM `$table`";
@@ -16,6 +18,10 @@ function sql_select($table, $id = null, $lastId = null) {
         $q .= " WHERE id = :id";
     } else if (is_numeric($lastId)) {
         $q .= " WHERE id >= :lastId";
+    }else if(!preg_match('/[^0-9,]/', $arrIds)){        
+        $q .= " WHERE id in($arrIds) ORDER BY FIELD(id, $arrIds)";        
+    }else{
+        die("sql_select error");
     }
 
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
@@ -24,7 +30,7 @@ function sql_select($table, $id = null, $lastId = null) {
     } else if (is_numeric($lastId)) {
         $sth->bindParam(":lastId", $lastId);
     }
-
+    
     $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
 
     $arr = array();

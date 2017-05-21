@@ -8,22 +8,22 @@ if (isset($_POST["table"])) {
     $table = $_POST["table"];
 }
 
-//if (isset($_POST["idQ"])) {
-//    $id = $_POST["idQ"];
-//    if (isset($_POST["id"])) {
-//        $key = $_POST["id"];
-//    } else {
-//        $key = convBase($id, $base10, $base);
-//        if ("private" != $table) {
-//            $key = "$table-$key";
-//        }
-//    }
-//    //
-//}
-//else 
-if ($_POST["key"]) {
+$key = null;
+if (isset($_POST["key"])) {
     $key = $_POST["key"];
-    $keyArr = explode("-", $key);
+}
+
+if (isset($_POST["idQ"])) {
+    $id = $_POST["idQ"];
+    if (!$key) {
+        $key = convBase($id, $base10, $base);
+        if ("private" != $table) {
+            $key = "$table-$key";
+        }
+    }
+    //
+} else {
+    $keyArr = preg_split('/(-|_)/', $key); //explode with '-' or '_'
     if (count($keyArr) > 1 && !empty($keyArr[0])) {
         $table = $keyArr[0];
     }
@@ -53,7 +53,16 @@ if (!strpos($_POST["data"], "|")) {
 }
 
 require 'ali/ali_append.php';
-ali_append($key, PHP_EOL . $data, $table);
+$previous_length = ali_append($key, PHP_EOL . $data, $table);
+
+
+//IF DID NOT EXIST -> create in sql
+if (0 == $previous_length) {
+    if (isset($_POST["sql_data"])) {
+        require 'sql/sql_create.php';
+        sql_create($_POST["sql_data"], $table, $id);
+    }
+}
 
 
 //use echo check to retrieve errors!

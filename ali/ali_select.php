@@ -6,7 +6,6 @@ require "ali/AliConnection.php";
 function ali_select($visibility, $file) {
 
     $con = new AliConnection($visibility);
-    $accessKeySecret = $con->accessKeySecret;
     $domain = $con->domain;
     $data = $con->data;
     $time = $con->time;

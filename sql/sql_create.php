@@ -1,17 +1,26 @@
 <?php
 
-function sql_create($data, $table = "private", $num_answers = 0) {
+require 'sql/connect.php'; //$connect, $user, $pass
+
+function sql_create($data, $table = "private", $id = "NULL") {
     if (empty($table)) {
         $table = "private";
     }
-
-    require 'sql/connect.php'; //$connect, $user, $pass
-
-    $pdo = new PDO($connect, $user, $pass);   
-    $q = "INSERT INTO `$table` (data) VALUES (:data)";
+    
+    global $connect, $user, $pass;
+    $pdo = new PDO($connect, $user, $pass);
+    
+    $q = "INSERT INTO `$table` (id, data) VALUES (:id, :data)";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
     $sth->bindParam(":data", $data);
-    $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
+    $sth->bindParam(":id", $id);
+    $result = $sth->execute();
+
+    //MANAGE ERRORS:
+    if (false == $result) {
+        sql_error($sth, $table);
+    }
+
     $id = $pdo->lastInsertId();
 
     if (empty($id)) {

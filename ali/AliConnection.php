@@ -26,6 +26,7 @@ class AliConnection {
 //            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
 //        }
         //override migration
+        $this->table = $table;
         $this->subdomain = "wouldyourather-$table";
         $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
 
@@ -37,12 +38,13 @@ class AliConnection {
         );
     }
 
-    public function sign($VERB, $time, $path, $type = "") {
+    public function sign($VERB, $time, $path = "", $type = "") {
         $hash = $VERB . "\n\n"
                 . $type . "\n"
                 . $time . "\n"
                 . "/{$this->subdomain}/$path";
         $this->hash = $hash;
+        //echo $hash . "<br><br><br>";
         return base64_encode(hash_hmac('sha1', $hash, $this->accessKeySecret, true));
     }
 
