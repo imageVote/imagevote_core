@@ -7,9 +7,15 @@ function sql_createTable($lang) {
         echo "wrong createTable length";
         die();
     }
-    
+
     global $connect, $user, $pass;
-    $pdo = new PDO($connect, $user, $pass);
+    try {
+        $pdo = new PDO($connect, $user, $pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (Excpetion $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+        die();
+    }
 
     $q = "CREATE TABLE $lang (
         id bigint(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
