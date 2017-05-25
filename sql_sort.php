@@ -1,5 +1,7 @@
 <?php
 
+include 'sql/fatal_error.php';
+
 $table = $_POST["table"];
 $dir = "sort";
 
@@ -50,7 +52,12 @@ if (in_array($table, $parse)) {
     }
 
     require_once 'sql/connect.php'; //$connect, $user, $pass
-    $pdo = new PDO($connect, $user, $pass);
+    try {
+        $pdo = new PDO($connect, $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+    } catch (Excpetion $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+        exit();
+    }
     $q = "SELECT id, v0, v1, reports FROM `$table`";
     $sth = $pdo->prepare($q);
     if (false == $sth) {
