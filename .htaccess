@@ -1,3 +1,4 @@
 
-Header set Access-Control-Allow-Origin localhost
-Header set Access-Control-Allow-Origin http://wouldyourather.tk
+#SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co)$" AccessControlAllowOrigin=$0
+SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co|localhost)$" AccessControlAllowOrigin=$0
+Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
