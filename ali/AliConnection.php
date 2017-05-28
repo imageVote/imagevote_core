@@ -16,19 +16,14 @@ class AliConnection {
         if (empty($table)) {
             $table = "private";
         }
-
-//        $this->subdomain = "wouldyourather-$table";
-//        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
-//
-//        require 'whitelist.php';
-//        if ($whitelisted) {
-//            $this->subdomain = "wouldyourather-$table-test";
-//            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
-//        }
-        //override migration
         $this->table = $table;
         $this->subdomain = "wouldyourather-$table";
-        $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
+        
+        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
+        require 'whitelist.php';
+        if ($whitelisted) {
+            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
+        }
 
         //data
         $this->time = time() + 20;

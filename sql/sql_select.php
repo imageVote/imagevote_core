@@ -37,5 +37,10 @@ function sql_select($table, $id = null, $lastId = null, $arrIds = null) {
     while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
         $arr[] = $row;
     }
+    
+    if(!count($arr) && $id){
+        die("not found with id == $id");
+    }
+    
     return $arr;
 }

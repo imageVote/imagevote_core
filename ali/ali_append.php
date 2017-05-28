@@ -53,15 +53,15 @@ function ali_append($file, $body, $table) {
     //on error (like not exists this language bucket):
     if ($res) {
         $xml = simplexml_load_string($res) or die("Error: Cannot create object");
-
-        switch ($xml->Code) {
+        switch ($xml->Code) {            
             case "NoSuchBucket":
                 //CREATE BUCKET
                 require 'ali/ali_createBucket.php';
                 $res_create = ali_createBucket($table);
 
-                if (1 == $res_create) {
-                    die();
+                //if (1 == $res_create) {
+                if (curl_error($res_create)) {
+                    die("adding bucket error: $res_create ($res)");
                 }
 
                 //RE-RUN:
@@ -77,12 +77,11 @@ function ali_append($file, $body, $table) {
                 break;
 
             default:
-                die($res);
+                die("not xml code case for: $res");
         }
-
     }
 
     curl_close($ch);
-    
+
     return $length;
 }

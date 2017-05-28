@@ -17,10 +17,6 @@ $lastId = null;
 if (isset($_POST["lastId"])) {
     $lastId = $_POST["lastId"];
 }
-$keyId = null;
-if (isset($_POST["key"])) {
-    $keyId = $_POST["key"];
-}
 $arrIds = null;
 if (isset($_POST["arrIds"])) {
     $arrIds = $_POST["arrIds"];
@@ -30,15 +26,15 @@ require "sql/sql_select.php";
 $data = sql_select($table, $id, $lastId, $arrIds);
 
 //update sql from file (only 1 poll)
-if (null !== $id || null !== $keyId && isset($data[0])) {
+if (null !== $id && isset($data[0])) {
 
     $row = $data[0];
     if (($row["v0"] + $row["v1"]) < 100 || time() - strtotime($row['t']) > 86400) { //24h
         require 'fileToSql.php';
-        fileToSql($table, $id, $keyId);
+        fileToSql($id, $table);
 
         //if updated
-        $data = sql_select($table, $id, $lastId);
+        $data = sql_select($table, $id);
     }
 }
 

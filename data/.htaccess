@@ -2,12 +2,6 @@
 RewriteEngine Off
 RewriteEngine On
 
-#RewriteCond %{SERVER_ADDR} 149.56.98.6
-#RewriteRule ^private/(.*)$ http://wouldyourather-private-test.oss-eu-central-1.aliyuncs.com/$1 [L]
 
-#RewriteCond %{HTTP_HOST} ^localhost
-#RewriteRule ^private/(.*)$ http://wouldyourather-private-test.oss-eu-central-1.aliyuncs.com/$1 [L]
-
-
-RewriteRule ^private/(.*)$ http://wouldyourather-private.oss-eu-central-1.aliyuncs.com/$1 [R=301,L]
-
+#RewriteRule ^private/(.*)$ http://wouldyourather-private.oss-eu-central-1.aliyuncs.com/$1 [R=301,L]
+RewriteRule ^private/(.*)$ http://wouldyourather-private.oss-eu-central-1-internal.aliyuncs.com/$1 [R=301,L]

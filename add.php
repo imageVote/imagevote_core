@@ -3,7 +3,7 @@
 require 'upload.php';
 require "convBase.php";
 
-$table = "private";
+$table = null;
 if (isset($_POST["table"])) {
     $table = $_POST["table"];
 }
@@ -12,27 +12,28 @@ $key = null;
 if (isset($_POST["key"])) {
     $key = $_POST["key"];
 }
-
+$id = null;
 if (isset($_POST["idQ"])) {
     $id = $_POST["idQ"];
-    if (!$key) {
-        $key = convBase($id, $base10, $base);
-        if ("private" != $table) {
-            $key = "$table-$key";
-        }
+}
+
+if (!empty($key)) {
+    if (!$id) {
+        require_once 'idKey.php';
+        $id = idKey($key);
     }
     //
 } else {
-    $keyArr = preg_split('/(-|_)/', $key); //explode with '-' or '_'
-    if (count($keyArr) > 1 && !empty($keyArr[0])) {
-        $table = $keyArr[0];
+    if (!$id) {
+        $data = $_POST["data"];
+        require 'sql/sql_create.php';
+        $id = sql_create($data, $table);
     }
-    if ("private" == $table) { //if private
-        $key64 = substr($key, 1, -1);
-    } else {
-        $key64 = $keyArr[count($keyArr) - 1];
+
+    $key = convBase($id, $base10, $base);
+    if (!empty($table)) {
+        $key = "$table-$key";
     }
-    $id = convBase($key64, $base, $base10);
 }
 
 //android ERROR:
@@ -47,23 +48,21 @@ if (isset($_POST["idQ"])) {
 //
 //TODO: CHECK USER ID IS CORRECT!
 //wrong versions code
-$data = $_POST["data"];
-if (!strpos($_POST["data"], "|")) {
-    $data = $_POST["userId"] . "|" . $_POST["data"];
+$previous_length = null;
+if (isset($_POST["add"])) {
+    $data = $_POST["userId"] . "|" . $_POST["add"];
+
+    require 'ali/ali_append.php';
+    $previous_length = ali_append($key, PHP_EOL . $data, $table);
 }
 
-require 'ali/ali_append.php';
-$previous_length = ali_append($key, PHP_EOL . $data, $table);
-
-
 //IF DID NOT EXIST -> create in sql
-if (0 == $previous_length) {
+if (0 === $previous_length || (empty($previous_length) && empty($key))) {
     if (isset($_POST["sql_data"])) {
         require 'sql/sql_create.php';
         sql_create($_POST["sql_data"], $table, $id);
     }
 }
-
 
 //use echo check to retrieve errors!
 echo $key;

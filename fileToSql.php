@@ -6,14 +6,14 @@ $base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 $base10 = '0123456789';
 require "convBase.php";
 
-function fileToSql($table, $id, $key = null) {
+function fileToSql($id, $table, $key = null) {
     global $base, $base10;
-    
-    $table_string = $table;
-    if(!$table){
-        $table_string = "private";
+
+    $tableString = $table;
+    if (!$table) {
+        $tableString = "private";
     }
-    
+
     if (null == $key) {
         $key = convBase($id, $base10, $base);
         if ($table) {
@@ -22,7 +22,8 @@ function fileToSql($table, $id, $key = null) {
     }
 
     //select by line because public (configure ip CORS)
-    $path = "http://wouldyourather-$table_string.oss-eu-central-1.aliyuncs.com/$key?nocache=" . rand();
+    //$path = "http://wouldyourather-$tableString.oss-eu-central-1.aliyuncs.com/$key?nocache=" . rand();
+    $path = "http://wouldyourather-$tableString.oss-eu-central-1-internal.aliyuncs.com/$key?nocache=" . rand();
     $fp = fopen($path, 'r');
     if (!$fp) {
         require_once 'sql/sql_select.php';
@@ -32,20 +33,23 @@ function fileToSql($table, $id, $key = null) {
         return;
     }
 
-    $first = fgets($fp); //ignore first line
+    //$first = fgets($fp); //ignore first line
 
     $answers = array();
     while ($line = fgets($fp)) {
+        if ('' == trim($line)) {
+            continue;
+        }
         $arr = explode("|", $line);
         $votes = json_decode($arr[1]);
         for ($i = 0; $i < count($votes); $i++) {
             $answers[$arr[0]] = (int) $votes[$i];
         }
     }
-    
+
     $res = array(0, 0);
     foreach ($answers as $userId => $vote) {
-        $res[$vote] ++;
+        $res[$vote] += 1;
     }
 
     $total = 0;
@@ -61,8 +65,8 @@ function fileToSql($table, $id, $key = null) {
     //update    
     global $connect, $user, $pass;
     $pdo = new PDO($connect, $user, $pass);
-        
-    $q = "UPDATE `$table_string` SET $set WHERE id = :id";
+
+    $q = "UPDATE `$tableString` SET $set WHERE id = :id";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
     $sth->bindParam(":id", $id);
     $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
