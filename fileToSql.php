@@ -23,7 +23,7 @@ function fileToSql($id, $table, $key = null) {
 
     //select by line because public (configure ip CORS)
     //$path = "http://wouldyourather-$tableString.oss-eu-central-1.aliyuncs.com/$key?nocache=" . rand();
-    $path = "http://wouldyourather-$tableString.oss-eu-central-1-internal.aliyuncs.com/$key?nocache=" . rand();
+    $path = "https://wouldyourather-$tableString.oss-eu-central-1-internal.aliyuncs.com/$key?nocache=" . rand();
     $fp = fopen($path, 'r');
     if (!$fp) {
         require_once 'sql/sql_select.php';
