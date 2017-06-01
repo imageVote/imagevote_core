@@ -1,7 +1,6 @@
 <?php
 
 //TODO: if some offshore uses his phone number to vote in other countries requesting with other country name
-include_once 'settings.php';
 
 
 $base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

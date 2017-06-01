@@ -1,0 +1,8 @@
+
+{
+    "update_frequency": 3,
+    "stars_frequency": 8,
+    "interstitial_start": 2,
+    "interstitial_frequency": 4,
+    "last_working_version_android": 25
+}
