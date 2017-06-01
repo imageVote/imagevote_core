@@ -5,7 +5,7 @@ $whitelist = array(
     '::1'
 );
 $server_whitelist = array(
-    '149.56.98.6'
+//    '149.56.98.6'
 );
 
 $whitelisted = false;

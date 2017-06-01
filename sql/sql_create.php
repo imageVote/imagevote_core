@@ -18,7 +18,7 @@ function sql_create($data, $table = "private", $id = "NULL") {
 
     //MANAGE ERRORS:
     if (false == $result) {
-        sql_error($sth, $table);
+        sql_error($sth, $table, $q);
     }
 
     $id = $pdo->lastInsertId();

@@ -57,7 +57,7 @@ if ($public) {
 
             if (false == $isInORG) {
                 //bug error or hack
-                echo "_not country coincidence '" . $ISO . "' is not in '" . $upperCountry . "' or '" . json_encode($ORGS[$upperCountry]) . "', please contact us";
+                echo "_not country coincidence '$ISO' is not in '$upperCountry' or '" . json_encode($ORGS[$upperCountry]) . "', please contact us";
                 die();
             }
         }

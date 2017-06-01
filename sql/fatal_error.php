@@ -5,7 +5,7 @@
 register_shutdown_function("fatal_handler");
 
 function fatal_handler() {
-    //only in localhost
+    //ONLY IN LOCALHOST
     $whitelist = array(
         '127.0.0.1',
         '::1'

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'urlStorage.php';
+
 class AliConnection {
 
     private $accessKeyId = "LTAIk2eFMXXUNg09";
@@ -18,12 +20,14 @@ class AliConnection {
         }
         $this->table = $table;
         $this->subdomain = "wouldyourather-$table";
-        
-        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
-        require 'whitelist.php';
-        if ($whitelisted) {
-            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
-        }
+
+//        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
+//        require 'whitelist.php';
+//        if ($whitelisted) {
+//            $this->domain = "{$this->subdomain}.oss-eu-central-1.aliyuncs.com";
+//        }
+        $url = urlStorage();
+        $this->domain = "{$this->subdomain}.$url";
 
         //data
         $this->time = time() + 20;
@@ -33,10 +37,11 @@ class AliConnection {
         );
     }
 
-    public function sign($VERB, $time, $path = "", $type = "") {
+    public function sign($VERB, $time, $path = "", $type = "", $headers = "") {
         $hash = $VERB . "\n\n"
                 . $type . "\n"
                 . $time . "\n"
+                . $headers
                 . "/{$this->subdomain}/$path";
         $this->hash = $hash;
         //echo $hash . "<br><br><br>";

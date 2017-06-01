@@ -32,35 +32,27 @@ if (!empty($key)) {
 
     $key = convBase($id, $base10, $base);
     if (!empty($table)) {
-        $key = "$table-$key";
+        $key = "{$table}_{$key}";
+    } else {
+        $key = "-$key" . substr(rtrim(base64_encode($key), '='), -1);
     }
 }
 
-//android ERROR:
-//require 'sql/sql_update.php';
-//$add = json_decode($_POST["add"]);
-//$sub = array();
-//if (isset($_POST["sub"])) {
-//    $sub = json_decode($_POST["sub"]);
-//}
-//sql_update($table, $id, $add, $sub);
-//
-//
 //TODO: CHECK USER ID IS CORRECT!
 //wrong versions code
 $previous_length = null;
 if (isset($_POST["add"])) {
-    $data = $_POST["userId"] . "|" . $_POST["add"];
+    $file_data = $_POST["userId"] . "|" . $_POST["add"];
 
     require 'ali/ali_append.php';
-    $previous_length = ali_append($key, PHP_EOL . $data, $table);
+    $previous_length = ali_append($key, $file_data . PHP_EOL, $table);
 }
 
 //IF DID NOT EXIST -> create in sql
 if (0 === $previous_length || (empty($previous_length) && empty($key))) {
-    if (isset($_POST["sql_data"])) {
+    if (isset($_POST["data"])) {
         require 'sql/sql_create.php';
-        sql_create($_POST["sql_data"], $table, $id);
+        sql_create($_POST["data"], $table, $id);
     }
 }
 

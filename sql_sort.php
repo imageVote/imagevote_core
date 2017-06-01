@@ -5,7 +5,8 @@ include 'sql/fatal_error.php';
 $table = $_POST["table"];
 $dir = "sort";
 
-if (file_exists("$dir/$table-1.txt") && time() - filemtime("$dir/$table-1.txt") < 360000) { // < 20h
+$file = "$dir/$table-1.txt";
+if (file_exists($file) && filesize($file) && time() - filemtime("$dir/$table-1.txt") < 360000) { // < 20h
     //wich
     $file_num = 1;
     if (isset($_POST["file"])) {
@@ -16,7 +17,8 @@ if (file_exists("$dir/$table-1.txt") && time() - filemtime("$dir/$table-1.txt") 
     die();
 }
 
-$parse = array("preguntas", "preguntasEN", "preguntasIT", "preguntasFR", "preguntasDE", "preguntasPT");
+//$parse = array("preguntas", "preguntasEN", "preguntasIT", "preguntasFR", "preguntasDE", "preguntasPT");
+$parse = array("es", "en", "it", "fr", "de", "pt");
 
 $all = array(); //same array type
 
@@ -24,6 +26,7 @@ if (in_array($table, $parse)) {
     $parse = parseSelectAll($table);
     for ($i = 0; $i < count($parse); $i++) {
         $row = $parse[$i];
+
         $badgrammar = 0;
         if (isset($row->badgrammar)) {
             $badgrammar = $row->badgrammar;
@@ -38,7 +41,7 @@ if (in_array($table, $parse)) {
         $arr['v0'] = !empty($row->first_nvotes) ? $row->first_nvotes : 0;
         $arr['v1'] = !empty($row->second_nvotes) ? $row->second_nvotes : 0;
         $arr['reports'] = $badgrammar + $reported;
-        $arr['score'] = (($arr['v0'] + $arr['v1']) / 10) - $arr['reports'];
+        $arr['score'] = min($arr['v0'], $arr['v1']) - $arr['reports'];
         $all[] = $arr;
     }
     //
@@ -68,10 +71,14 @@ if (in_array($table, $parse)) {
 
     //MANAGE ERRORS:
     if (false == $result) {
-        sql_error($sth, $table);
+        sql_error($sth, $table, $q);
     }
 
     while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+        if ($row['err']) {
+            continue;
+        }
+
         $row['score'] = (($row['v0'] + $row['v1']) / 10) - $row['reports'];
         $all[] = $row;
     }
@@ -107,6 +114,11 @@ fclose($handle);
 ///////////////////////////////////////////////////////////////////////////////
 
 function parseSelectAll($table) {
+    if ("es" == $table) {
+        $table = "";
+    }
+    $table = "preguntas" . strtoupper($table);
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(

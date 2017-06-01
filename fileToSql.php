@@ -1,6 +1,7 @@
 <?php
 
 require_once 'sql/connect.php';
+require_once 'urlStorage.php';
 
 $base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 $base10 = '0123456789';
@@ -17,23 +18,20 @@ function fileToSql($id, $table, $key = null) {
     if (null == $key) {
         $key = convBase($id, $base10, $base);
         if ($table) {
-            $key = "$table-$key";
+            $key = "{$table}_{$key}";
         }
     }
 
-    //select by line because public (configure ip CORS)
-    //$path = "http://wouldyourather-$tableString.oss-eu-central-1.aliyuncs.com/$key?nocache=" . rand();
-    $path = "http://wouldyourather-$tableString.oss-eu-central-1-internal.aliyuncs.com/$key?nocache=" . rand();
-    $fp = fopen($path, 'r');
-    if (!$fp) {
-        require_once 'sql/sql_select.php';
-        $poll = sql_select($table, $id)[0];
-        require_once 'ali/ali_append.php';
-        ali_append($key, $poll['data'], $table);
+    $url = urlStorage();
+
+    //IF NOT EXISTS ANY VOTE FILE, DO NOTHING (NO VOTED POLL)
+    $path = "http://wouldyourather-$tableString.$url/$key?nocache=" . rand();
+    if (!file_exists($path)) {
         return;
     }
-
-    //$first = fgets($fp); //ignore first line
+    
+    //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)
+    $fp = fopen($path, 'r');
 
     $answers = array();
     while ($line = fgets($fp)) {
@@ -46,20 +44,25 @@ function fileToSql($id, $table, $key = null) {
             $answers[$arr[0]] = (int) $votes[$i];
         }
     }
-
+    
     $res = array(0, 0);
     foreach ($answers as $userId => $vote) {
+        if (!isset($res[$vote])) {
+            require_once 'sql/sql_addError.php';
+            sql_addError($id, $table);
+            echo "error reading '" . file_get_contents($path) . "' in $path";
+            die();
+        }
         $res[$vote] += 1;
     }
 
-    $total = 0;
+
     $set = "";
     for ($i = 0; $i < count($res); $i++) {
         $set .= " v$i = $res[$i]";
         if (count($res) > $i + 1) {
             $set .= ",";
         }
-        $total += $res[$i];
     }
 
     //update    
