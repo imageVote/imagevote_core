@@ -50,8 +50,16 @@ if (in_array($table, $parse)) {
     if (empty($table)) {
         $table = "private";
     } else if (2 != strlen($table)) {
-        echo "ERROR_TABLE $table";
-        die();
+        //REPAIR OLD VERSION APP $table (DEPRECATED)
+        if (strpos($table, "preguntas")) {
+            $lang = array_pop(explode("preguntas", $table));
+            if(!$lang){
+                $lang = "es";
+            }
+        } else {
+            echo "ERROR_TABLE $table";
+            die();
+        }
     }
 
     require_once 'sql/connect.php'; //$connect, $user, $pass
