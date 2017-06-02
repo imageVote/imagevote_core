@@ -40,9 +40,8 @@ function sql_createTable($lang, $error = "") {
         //echo "error: $error; ";
         if ($error && strpos($error, "Unknown column '") > -1) {
             
-            $shift = explode("' in 'field list'", $error)[0];
-            $pop_arr = explode("Unknown column '", $shift);
-            $col = array_pop($pop_arr);
+            $pop = array_pop(explode("Unknown column '", $error));
+            $col = explode("'", $pop)[0];
 
             //echo "col: $col";
             $q = "ALTER TABLE `$lang` ADD $col {$cols[$col]}";
