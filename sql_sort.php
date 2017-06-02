@@ -51,7 +51,7 @@ if (in_array($table, $parse)) {
         $table = "private";
     } else if (2 != strlen($table)) {
         //REPAIR OLD VERSION APP $table (DEPRECATED)
-        if (strpos($table, "preguntas")) {
+        if (strpos($table, "preguntas") > -1) {
             $lang = array_pop(explode("preguntas", $table));
             if(!$lang){
                 $lang = "es";
