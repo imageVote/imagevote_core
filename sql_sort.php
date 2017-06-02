@@ -52,9 +52,9 @@ if (in_array($table, $parse)) {
     } else if (2 != strlen($table)) {
         //REPAIR OLD VERSION APP $table (DEPRECATED)
         if (strpos($table, "preguntas") > -1) {
-            $lang = array_pop(explode("preguntas", $table));
-            if(!$lang){
-                $lang = "es";
+            $table = array_pop(explode("preguntas", $table));
+            if(!$table){
+                $table = "es";
             }
         } else {
             echo "ERROR_TABLE $table";
