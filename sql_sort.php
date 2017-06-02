@@ -61,7 +61,7 @@ if (in_array($table, $parse)) {
         echo 'Connection failed: ' . $e->getMessage();
         exit();
     }
-    $q = "SELECT id, v0, v1, reports FROM `$table`";
+    $q = "SELECT id, v0, v1, reports FROM `$table` WHERE err = 0";
     $sth = $pdo->prepare($q);
     if (false == $sth) {
         echo $sth->errno . "; ";
@@ -79,7 +79,7 @@ if (in_array($table, $parse)) {
             continue;
         }
 
-        $row['score'] = (($row['v0'] + $row['v1']) / 10) - $row['reports'];
+        $row['score'] = min($row['v0'], $row['v1']) + $row['likes'] - $row['reports'];
         $all[] = $row;
     }
 }

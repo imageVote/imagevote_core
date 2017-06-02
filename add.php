@@ -30,12 +30,8 @@ if (!empty($key)) {
         $id = sql_create($data, $table);
     }
 
-    $key = convBase($id, $base10, $base);
-    if (!empty($table)) {
-        $key = "{$table}_{$key}";
-    } else {
-        $key = "-$key" . substr(rtrim(base64_encode($key), '='), -1);
-    }
+    require_once 'idKey.php';
+    $key = keyId($id, $table);
 }
 
 //TODO: CHECK USER ID IS CORRECT!

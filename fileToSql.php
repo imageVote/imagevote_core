@@ -16,22 +16,21 @@ function fileToSql($id, $table, $key = null) {
     }
 
     if (null == $key) {
-        $key = convBase($id, $base10, $base);
-        if ($table) {
-            $key = "{$table}_{$key}";
-        }
+        require_once 'idKey.php';
+        $key = keyId($id, $table);
     }
 
     $url = urlStorage();
-
-    //IF NOT EXISTS ANY VOTE FILE, DO NOTHING (NO VOTED POLL)
     $path = "http://wouldyourather-$tableString.$url/$key?nocache=" . rand();
-    if (!file_exists($path)) {
-        return;
-    }
     
+    //("file_exists()" not work from localhost!)
     //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)
     $fp = fopen($path, 'r');
+    if(!$fp){
+        //IF NOT EXISTS ANY VOTE FILE, DO NOTHING (NO VOTED POLL)
+        //echo "!file_exists($path)";
+        return;
+    }
 
     $answers = array();
     while ($line = fgets($fp)) {
@@ -44,7 +43,7 @@ function fileToSql($id, $table, $key = null) {
             $answers[$arr[0]] = (int) $votes[$i];
         }
     }
-    
+
     $res = array(0, 0);
     foreach ($answers as $userId => $vote) {
         if (!isset($res[$vote])) {
