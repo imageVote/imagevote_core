@@ -103,7 +103,7 @@ array_map('unlink', glob($mask));
 //write
 $num = 1;
 $handle = fopen("$dir/$table-$num.txt", "w");
-if (!handle) {
+if (false === $handle) {
     error_log("!handle in '$dir/$table-$num.txt' \n", 3, "/var/log/apache2/error.log");
     //
 } else {
