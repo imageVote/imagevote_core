@@ -83,7 +83,7 @@ if (in_array($table, $parse)) {
     }
 
     while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
-        if ($row['err']) {
+        if (!empty($row['err'])) {
             continue;
         }
 
