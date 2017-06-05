@@ -27,21 +27,22 @@ if (in_array($table, $parse)) {
     for ($i = 0; $i < count($parse); $i++) {
         $row = $parse[$i];
 
-        $badgrammar = 0;
-        if (isset($row->badgrammar)) {
-            $badgrammar = $row->badgrammar;
-        }
-        $reported = 0;
-        if (isset($row->reported)) {
-            $reported = $row->reported;
-        }
+//        $badgrammar = 0;
+//        if (isset($row->badgrammar)) {
+//            $badgrammar = $row->badgrammar;
+//        }
+//        $reported = 0;
+//        if (isset($row->reported)) {
+//            $reported = $row->reported;
+//        }
 
         $arr = array();
         $arr['id'] = $row->idQ;
         $arr['v0'] = !empty($row->first_nvotes) ? $row->first_nvotes : 0;
         $arr['v1'] = !empty($row->second_nvotes) ? $row->second_nvotes : 0;
-        $arr['reports'] = $badgrammar + $reported;
-        $arr['score'] = min($arr['v0'], $arr['v1']) - $arr['reports'];
+        //$arr['reports'] = $badgrammar + $reported;
+        //$arr['score'] = min($arr['v0'], $arr['v1']) - $arr['reports'];
+        $arr['score'] = min($arr['v0'], $arr['v1']);
         $all[] = $arr;
     }
     //
