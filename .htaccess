@@ -2,6 +2,10 @@
 # ALLOW MULTIPLE CROSS DOMAINS
 #https://stackoverflow.com/questions/1653308/access-control-allow-origin-multiple-origin-domains
 
-#SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co)$" AccessControlAllowOrigin=$0
-SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co|localhost)$" AccessControlAllowOrigin=$0
-Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+##SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co)$" AccessControlAllowOrigin=$0
+#SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co|localhost)$" AccessControlAllowOrigin=$0
+#Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
