@@ -1,0 +1,5 @@
+
+#https://stackoverflow.com/questions/1340001/deny-direct-access-to-all-php-files-except-index-php
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1

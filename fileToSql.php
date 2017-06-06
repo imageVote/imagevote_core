@@ -22,11 +22,11 @@ function fileToSql($id, $table, $key = null) {
 
     $url = urlStorage();
     $path = "http://wouldyourather-$tableString.$url/$key?nocache=" . rand();
-    
+
     //("file_exists()" not work from localhost!)
     //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)
-    $fp = fopen($path, 'r');
-    if(!$fp){
+    $fp = @fopen($path, 'r');
+    if (!$fp) {
         //IF NOT EXISTS ANY VOTE FILE, DO NOTHING (NO VOTED POLL)
         //echo "!file_exists($path)";
         return;
