@@ -88,7 +88,8 @@ if (in_array($table, $parse)) {
             continue;
         }
 
-        $row['score'] = min($row['v0'], $row['v1']) + $row['likes'] - $row['reports'];
+        $likes = !empty($row['likes']) ? $row['likes'] : 0;
+        $row['score'] = min($row['v0'], $row['v1']) + $likes - $row['reports'];
         $all[] = $row;
     }
 }
