@@ -42,7 +42,7 @@ if (in_array($table, $parse)) {
         $arr['v1'] = !empty($row->second_nvotes) ? $row->second_nvotes : 0;
         //$arr['reports'] = $badgrammar + $reported;
         //$arr['score'] = min($arr['v0'], $arr['v1']) - $arr['reports'];
-        $arr['score'] = min(+$arr['v0'], +$arr['v1']);
+        $arr['score'] = min((int) $arr['v0'], (int) $arr['v1']);
         $all[] = $arr;
     }
     //
@@ -88,7 +88,7 @@ if (in_array($table, $parse)) {
             continue;
         }
 
-        $row['score'] = min(+$row['v0'], +$row['v1']) + $row['likes'] - $row['reports'];
+        $row['score'] = min((int) $row['v0'], (int) $row['v1']) + (int) $row['likes'] - (int) $row['reports'];
         $all[] = $row;
     }
 }
