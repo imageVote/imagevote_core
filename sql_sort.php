@@ -98,7 +98,6 @@ usort($all, function($a, $b) {
 });
 
 
-
 //delete
 $mask = "$dir/$table-*.txt";
 array_map('unlink', glob($mask));
