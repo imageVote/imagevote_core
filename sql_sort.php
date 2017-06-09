@@ -87,8 +87,9 @@ if (in_array($table, $parse)) {
         if (!empty($row['err'])) {
             continue;
         }
-
-        $row['score'] = min((int) $row['v0'], (int) $row['v1']) + (int) $row['likes'] - (int) $row['reports'];
+        
+        $likes = !empty($row['likes']) ? (int) $row['likes'] : 0;
+        $row['score'] = min((int) $row['v0'], (int) $row['v1']) + $likes - (int) $row['reports'];
         $all[] = $row;
     }
 }
