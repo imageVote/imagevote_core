@@ -9,6 +9,7 @@
 #FROM IOS WEBVIEW! :(
 Header set Access-Control-Allow-Origin "*"
 
-#https://stackoverflow.com/questions/1340001/deny-direct-access-to-all-php-files-except-index-php
-Order Allow,Deny
-Allow from all
+#PREVENT www-data PERMISSION ERROR REQUEST?
+##https://stackoverflow.com/questions/1340001/deny-direct-access-to-all-php-files-except-index-php
+#Order Allow,Deny
+#Allow from all
