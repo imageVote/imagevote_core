@@ -87,12 +87,12 @@ if (in_array($table, $parse)) {
         if (!empty($row['err'])) {
             continue;
         }
-        
+
         $likes = !empty($row['likes']) ? (int) $row['likes'] : 0;
         $row['score'] = min((int) $row['v0'], (int) $row['v1']) + $likes - (int) $row['reports'];
-        if($row['score'] > 0){
+        if ($row['score'] > 0) { //prevent all scores 0 bug!
             $all[] = $row;
-        }        
+        }
     }
 }
 
