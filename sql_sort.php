@@ -42,7 +42,7 @@ if (in_array($table, $parse)) {
         $arr['v1'] = !empty($row->second_nvotes) ? $row->second_nvotes : 0;
         //$arr['reports'] = $badgrammar + $reported;
         //$arr['score'] = min($arr['v0'], $arr['v1']) - $arr['reports'];
-        $arr['score'] = min($arr['v0'], $arr['v1']);
+        $arr['score'] = min((int) $arr['v0'], (int) $arr['v1']);
         $all[] = $arr;
     }
     //
@@ -87,9 +87,9 @@ if (in_array($table, $parse)) {
         if (!empty($row['err'])) {
             continue;
         }
-
-        $likes = !empty($row['likes']) ? $row['likes'] : 0;
-        $row['score'] = min($row['v0'], $row['v1']) + $likes - $row['reports'];
+        
+        $likes = !empty($row['likes']) ? (int) $row['likes'] : 0;
+        $row['score'] = min((int) $row['v0'], (int) $row['v1']) + $likes - (int) $row['reports'];
         $all[] = $row;
     }
 }
@@ -98,6 +98,7 @@ usort($all, function($a, $b) {
     return ($b['score'] < $a['score']) ? -1 : 1;
 });
 
+
 //delete
 $mask = "$dir/$table-*.txt";
 array_map('unlink', glob($mask));
@@ -105,6 +106,7 @@ array_map('unlink', glob($mask));
 //write
 $num = 1;
 $handle = fopen("$dir/$table-$num.txt", "w");
+$log_score = fopen("$dir/$table-$num-scores.txt", "w");
 if (false === $handle) {
     error_log("!handle in '$dir/$table-$num.txt': " . json_encode(error_get_last()) . " \n", 3, "error.log");
     //
@@ -112,6 +114,7 @@ if (false === $handle) {
     for ($i = 0; $i < count($all); $i++) {
         $data = $all[$i]["id"] . ",";
         fwrite($handle, $data);
+        fwrite($log_score, $all[$i]["score"] . ",");
         if ($i < 100) {
             echo $data;
         }
@@ -124,6 +127,7 @@ if (false === $handle) {
         }
     }
     fclose($handle);
+    fclose($log_score);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

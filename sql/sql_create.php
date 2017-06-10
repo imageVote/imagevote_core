@@ -9,8 +9,9 @@ function sql_create($data, $table = "private", $id = "NULL") {
 
     global $connect, $user, $pass;
     $pdo = new PDO($connect, $user, $pass);
-
-    $q = "INSERT INTO `$table` (id, data) VALUES (:id, :data)";
+    
+    //IGNORE IF ALREADY EXISTS
+    $q = "INSERT IGNORE INTO `$table` (id, data) VALUES (:id, :data)";
     $sth = $pdo->prepare($q);
     if (false === $sth) {
         if (mysql_errno() == 1062) {
