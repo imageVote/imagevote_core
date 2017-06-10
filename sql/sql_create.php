@@ -31,11 +31,11 @@ function sql_create($data, $table = "private", $id = "NULL") {
     }
 
     $id = $pdo->lastInsertId();
-
-    if (empty($id)) {
-        echo "ERROR_SQL_INSERT $q $data";
-        die();
-    }
+    //INSERT 'IGNORE'
+//    if (empty($id)) {
+//        echo "ERROR_SQL_INSERT $q $data";
+//        die();
+//    }
 
     return $id;
 }
