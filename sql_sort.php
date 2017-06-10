@@ -90,7 +90,9 @@ if (in_array($table, $parse)) {
         
         $likes = !empty($row['likes']) ? (int) $row['likes'] : 0;
         $row['score'] = min((int) $row['v0'], (int) $row['v1']) + $likes - (int) $row['reports'];
-        $all[] = $row;
+        if($row['score'] > 0){
+            $all[] = $row;
+        }        
     }
 }
 
