@@ -90,16 +90,19 @@ if (in_array($table, $parse)) {
 
         $likes = !empty($row['likes']) ? (int) $row['likes'] : 0;
         $row['score'] = min((int) $row['v0'], (int) $row['v1']) + $likes - (int) $row['reports'];
-        if ($row['score'] > 0) { //prevent all scores 0 bug!
-            $all[] = $row;
-        }
+        //if ($row['score'] > 0) { //prevent all scores 0 bug!
+        $all[] = $row;
+        //}
     }
 }
 
 usort($all, function($a, $b) {
     return ($b['score'] < $a['score']) ? -1 : 1;
 });
-
+//prevent all '0' score bug
+if(!$all[0]['score']){
+    die();
+}
 
 //delete
 $mask = "$dir/$table-*.txt";

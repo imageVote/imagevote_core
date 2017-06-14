@@ -3,25 +3,15 @@
 require_once 'sql/connect.php';
 require_once 'urlStorage.php';
 
-$base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-$base10 = '0123456789';
-require "convBase.php";
-
-function fileToSql($id, $table, $key = null) {
-    global $base, $base10;
+function fileToSql($id, $table) {
 
     $tableString = $table;
     if (!$table) {
         $tableString = "private";
     }
 
-    if (null == $key) {
-        require_once 'idKey.php';
-        $key = keyId($id, $table);
-    }
-
     $url = urlStorage();
-    $path = "http://wouldyourather-$tableString.$url/$key?nocache=" . rand();
+    $path = "http://wouldyourather-$tableString.$url/$id?nocache=" . rand();
 
     //("file_exists()" not work from localhost!)
     //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)

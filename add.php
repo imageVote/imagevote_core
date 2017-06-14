@@ -1,37 +1,21 @@
 <?php
 
 require 'upload.php';
-require "convBase.php";
 
 $table = null;
 if (isset($_POST["table"])) {
     $table = $_POST["table"];
 }
 
-$key = null;
-if (isset($_POST["key"])) {
-    $key = $_POST["key"];
-}
 $id = null;
 if (isset($_POST["idQ"])) {
     $id = $_POST["idQ"];
 }
 
-if (!empty($key)) {
-    if (!$id) {
-        require_once 'idKey.php';
-        $id = idKey($key);
-    }
-    //
-} else {
-    if (!$id) {
-        $data = $_POST["data"];
-        require 'sql/sql_create.php';
-        $id = sql_create($data, $table);
-    }
-
-    require_once 'idKey.php';
-    $key = keyId($id, $table);
+if (!$id) {
+    $data = $_POST["data"];
+    require 'sql/sql_create.php';
+    $id = sql_create($data, $table);
 }
 
 //TODO: CHECK USER ID IS CORRECT!
@@ -41,16 +25,16 @@ if (isset($_POST["add"])) {
     $file_data = $_POST["userId"] . "|" . $_POST["add"];
 
     require 'ali/ali_append.php';
-    $previous_length = ali_append($key, $file_data . PHP_EOL, $table);
+    $previous_length = ali_append($id, $file_data . PHP_EOL, $table);
 }
 
-//IF DID NOT EXIST -> create in sql
-if (0 === $previous_length || (empty($previous_length) && empty($key))) {
-    if (isset($_POST["data"])) {
-        require 'sql/sql_create.php';
-        sql_create($_POST["data"], $table, $id);
-    }
-}
+//IF DID NOT EXIST(bug?) -> create in sql
+//if (0 === $previous_length || (empty($previous_length) && empty($id))) {
+//    if (isset($_POST["data"])) {
+//        require_once 'sql/sql_create.php';
+//        sql_create($_POST["data"], $table, $id);
+//    }
+//}
 
 //use echo check to retrieve errors!
-echo $key;
+echo $id;

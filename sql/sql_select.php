@@ -18,7 +18,7 @@ function sql_select($table, $id = null, $lastId = null, $arrIds = null) {
         $q .= " WHERE id = :id";
     } else if (is_numeric($lastId)) {
         $q .= " WHERE id >= :lastId";
-    }else if(!preg_match('/[^0-9,]/', $arrIds)){        
+    }else if($arrIds && !preg_match('/[^0-9,]/', $arrIds)){        
         $q .= " WHERE id in($arrIds) ORDER BY FIELD(id, $arrIds)";        
     }else{
         die("sql_select error");
