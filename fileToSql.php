@@ -11,7 +11,7 @@ function fileToSql($id, $table) {
     }
 
     $url = urlStorage();
-    $path = "http://wouldyourather-$tableString.$url/$id?nocache=" . rand();
+    $path = "http://wouldyourather-$tableString.$url/{$tableString}_{$id}?nocache=" . rand();
 
     //("file_exists()" not work from localhost!)
     //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)

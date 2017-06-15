@@ -8,7 +8,9 @@ if (isset($_POST["table"])) {
 }
 
 $id = null;
-if (isset($_POST["idQ"])) {
+if (isset($_POST["id"])) {
+    $id = $_POST["id"];
+}else if (isset($_POST["idQ"])) {
     $id = $_POST["idQ"];
 }
 
