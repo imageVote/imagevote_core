@@ -13,8 +13,12 @@ if (file_exists($file) && filesize($file) && time() - filemtime("$dir/$table-1.t
         $file_num = $_POST["file"];
     }
 
-    echo file_get_contents("$dir/$table-$file_num.txt");
-    die();
+    $content = file_get_contents("$dir/$table-$file_num.txt");
+    //if enought questions to play..
+    if (strlen($content) > 200) {
+        echo $content;
+        die();
+    }
 }
 
 //$parse = array("preguntas", "preguntasEN", "preguntasIT", "preguntasFR", "preguntasDE", "preguntasPT");
@@ -99,7 +103,7 @@ usort($all, function($a, $b) {
 });
 
 //prevent all '0' score bug (only parse)
-if(in_array($table, $parse) && !$all[0]['score']){
+if (in_array($table, $parse) && !$all[0]['score']) {
     die();
 }
 
