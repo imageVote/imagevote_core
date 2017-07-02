@@ -9,11 +9,7 @@ require "convBase.php";
 
 function fileToSql($id, $table, $key = null) {
     global $base, $base10;
-
-    $tableString = $table;
-    if (!$table) {
-        $tableString = "private";
-    }
+    $con = new AliConnection($table);
 
     if (null == $key) {
         require_once 'idKey.php';
@@ -21,7 +17,7 @@ function fileToSql($id, $table, $key = null) {
     }
 
     $url = urlStorage();
-    $path = "http://wouldyourather-$tableString.$url/$key?nocache=" . rand();
+    $path = "http://{$con->subdomain}.{$url}/$key?nocache=" . rand();
 
     //("file_exists()" not work from localhost!)
     //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)
@@ -68,7 +64,7 @@ function fileToSql($id, $table, $key = null) {
     global $connect, $user, $pass;
     $pdo = new PDO($connect, $user, $pass);
 
-    $q = "UPDATE `$tableString` SET $set WHERE id = :id";
+    $q = "UPDATE `{$con->table}` SET $set WHERE id = :id";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
     $sth->bindParam(":id", $id);
     $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");

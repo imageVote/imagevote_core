@@ -6,7 +6,7 @@
 #SetEnvIf Origin "http(s)?://(www\.)?(wouldyourather.co|localhost)$" AccessControlAllowOrigin=$0
 #Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
 
-#FROM IOS WEBVIEW! :(
+#NEEDED FROM IOS WEBVIEW! :(
 Header set Access-Control-Allow-Origin "*"
 
 #PREVENT www-data PERMISSION ERROR REQUEST?

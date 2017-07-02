@@ -5,21 +5,25 @@ require_once 'urlStorage.php';
 class AliConnection {
 
     private $accessKeyId = "LTAIk2eFMXXUNg09";
-    private $subdomain;
     //
     public $accessKeySecret = 'hEVKsi8OS9bpA7miFaiznIjTjHnoGv';
     public $domain;
+    public $subdomain;
+    public $table;
     public $data;
     public $time;
     //debug:
     public $hash;
 
     public function __construct($table = "private") {
+        $_APPNAME = "wouldyourather";
+        include 'config.php'; //overrides $_APPNAME if exists
+
         if (empty($table)) {
             $table = "private";
         }
         $this->table = $table;
-        $this->subdomain = "wouldyourather-$table";
+        $this->subdomain = "{$_APPNAME}-{$table}";
 
 //        $this->domain = "{$this->subdomain}.oss-eu-central-1-internal.aliyuncs.com";
 //        require 'whitelist.php';

@@ -11,7 +11,11 @@
 //    $pass = "testing";
 //}
 //
-$connect = "mysql:host=47.91.75.28;port=3306;dbname=wouldyourather";
+
+$_APPNAME = "wouldyourather";
+include 'config.php'; //overrides $_APPNAME if exists
+
+$connect = "mysql:host=47.91.75.28;port=3306;dbname=$_APPNAME";
 $user = "externo";
 $pass = "&MOVy1PV";
 
@@ -32,6 +36,6 @@ function sql_error($sth, $table, $query = "") {
             break;
 
         default:
-            die("$error in: $query" );
+            die("$error in: $query");
     }
 }

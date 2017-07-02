@@ -6,3 +6,5 @@ error.log
 
 /sort/*
 !/sort/index.html
+
+config.php
