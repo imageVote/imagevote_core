@@ -4,12 +4,12 @@ require_once 'ali/AliConnection.php';
 require_once 'sql/connect.php';
 require_once 'urlStorage.php';
 
-function fileToSql($id, $table, $key = null) {
-    global $base, $base10;
+function fileToSql($id, $table) {
     $con = new AliConnection($table);
 
     $url = urlStorage();
-    $path = "http://{$con->subdomain}.{$url}/$key?nocache=" . rand();
+    $file = "{$con->table}_{$id}";
+    $path = "http://{$con->subdomain}.{$url}/$file?nocache=" . rand();
 
     //("file_exists()" not work from localhost!)
     //ONLY CAN SELECT BY FOPEN BECAUSE PUBLIC (configure ip CORS)

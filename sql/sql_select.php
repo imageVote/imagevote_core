@@ -41,6 +41,5 @@ function sql_select($table, $id = null, $lastId = null, $arrIds = null) {
     if(!count($arr) && $id){
         die("not found with id == $id");
     }
-    
     return $arr;
 }

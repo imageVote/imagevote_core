@@ -2,7 +2,7 @@
 
 require_once 'sql/connect.php'; //$connect, $user, $pass
 
-function sql_createTable($lang, $error = "") {    
+function sql_createTable($lang, $error = "") {
     if (strlen($lang) != 2 && "private" !== $lang) {
         echo "wrong createTable length";
         die();
@@ -13,7 +13,7 @@ function sql_createTable($lang, $error = "") {
     try {
         $pdo = new PDO($connect, $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
     } catch (Excpetion $e) {
-        echo 'Connection failed: ' . $e->getMessage();
+        echo 'Connection failed: ' . $e->getMessage() . " ($_APPNAME)";
         die();
     }
 
@@ -32,7 +32,7 @@ function sql_createTable($lang, $error = "") {
     include 'config.php'; //$_APPNAME //$connect //$user //$pass
     $q = "SELECT count(*) as count FROM information_schema.TABLES WHERE TABLE_SCHEMA = '$_APPNAME' AND TABLE_NAME = '$lang'";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
-    
+
     $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
     $row = $sth->fetch(PDO::FETCH_ASSOC);
     //echo json_encode($row);
@@ -40,7 +40,7 @@ function sql_createTable($lang, $error = "") {
     if ($row['count']) {
         //echo "error: $error; ";
         if ($error && strpos($error, "Unknown column '") > -1) {
-            
+
             $pop = array_pop(explode("Unknown column '", $error));
             $col = explode("'", $pop)[0];
 
