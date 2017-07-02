@@ -8,8 +8,9 @@ if (!isset($connect) || !isset($user) || !isset($pass)) {
 function sql_error($sth, $table, $query = "") {
     //echo "sql_error..";
     $error = implode(":", $sth->errorInfo()) . " (in sql_error)";
+    
     switch ($sth->errorCode()) {
-        case "42S02":
+        case "42S02":           
             require 'sql/sql_createTable.php';
             sql_createTable($table);
             $sth->execute();

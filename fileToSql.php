@@ -1,5 +1,6 @@
 <?php
 
+require_once 'ali/AliConnection.php';
 require_once 'sql/connect.php';
 require_once 'urlStorage.php';
 

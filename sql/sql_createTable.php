@@ -2,7 +2,7 @@
 
 require_once 'sql/connect.php'; //$connect, $user, $pass
 
-function sql_createTable($lang, $error = "") {
+function sql_createTable($lang, $error = "") {    
     if (strlen($lang) != 2 && "private" !== $lang) {
         echo "wrong createTable length";
         die();
@@ -29,9 +29,10 @@ function sql_createTable($lang, $error = "") {
         't' => "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
     );
 
-    //$q = "SELECT 1 FROM `$lang` LIMIT 1";
-    $q = "SELECT count(*) as count FROM information_schema.TABLES WHERE TABLE_NAME = '$lang'";
+    include 'config.php'; //$_APPNAME //$connect //$user //$pass
+    $q = "SELECT count(*) as count FROM information_schema.TABLES WHERE TABLE_SCHEMA = '$_APPNAME' AND TABLE_NAME = '$lang'";
     $sth = $pdo->prepare($q) or die(implode(":", $sth->errorInfo()) . " in $q");
+    
     $sth->execute() or die(implode(":", $sth->errorInfo()) . " in $q");
     $row = $sth->fetch(PDO::FETCH_ASSOC);
     //echo json_encode($row);
@@ -46,7 +47,7 @@ function sql_createTable($lang, $error = "") {
             //echo "col: $col";
             $q = "ALTER TABLE `$lang` ADD $col {$cols[$col]}";
         } else {
-            die("TODO: add all cols: $error");
+            die("TODO: add all cols: $error (rows: {$row['count']})");
             //TODO:
         }
     } else {

@@ -104,7 +104,7 @@ usort($all, function($a, $b) {
 });
 
 //prevent all '0' score bug (only parse)
-if (in_array($table, $parse) && !$all[0]['score']) {
+if (in_array($table, $parse) && (!count($all) || !$all[0]['score'])) {
     die();
 }
 
