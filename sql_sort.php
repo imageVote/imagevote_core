@@ -1,5 +1,6 @@
 <?php
 
+include 'config.php';
 include 'sql/fatal_error.php';
 
 $table = $_POST["table"];
@@ -26,7 +27,7 @@ $parse = array("es", "en", "it", "fr", "de", "pt");
 
 $all = array(); //same array type
 
-if (in_array($table, $parse)) {
+if (in_array($table, $parse) && "wouldyourather" == $_APPNAME) {
     $parse = parseSelectAll($table);
     for ($i = 0; $i < count($parse); $i++) {
         $row = $parse[$i];
