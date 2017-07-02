@@ -2,11 +2,12 @@
 
 require "ali/AliConnection.php";
 
-function ali_append($file, $body, $table) {
+function ali_append($id, $body, $table, $retry = false) {
     $con = new AliConnection($table);
     $domain = $con->domain;
     $data = $con->data;
     $time = $con->time;
+    $file = "{$con->table}_{$id}";
 
     //CURL GET META FILE:
     $path = "$file?objectMeta";
@@ -61,7 +62,7 @@ function ali_append($file, $body, $table) {
 
                 //if (1 == $res_create) {
                 if ($curl_error) {
-                    die("adding bucket error: " . $curl_error . " ($res)");
+                    die("adding bucket error: $curl_error ($res)");
                 }
 
                 //RE-RUN:
@@ -76,12 +77,21 @@ function ali_append($file, $body, $table) {
 
                 break;
 
+            case "PositionNotEqualToLength":
+                //could be on simultaneously update poll
+                if (!$retry) {
+                    //try again:
+                    ali_append($id, $body, $table, true);
+                }
+                break;
+
             default:
                 die("not xml code case for: $res");
         }
     }
 
     curl_close($ch);
-
+    
+    //actually not in use
     return $length;
 }

@@ -9,6 +9,7 @@ if (isset($_POST["table"])) {
     $table = $_POST["table"];
 }
 
+//'id' is preferable to key for search in database int index based!
 $id = null;
 if (isset($_POST["id"])) {
     $id = $_POST["id"];

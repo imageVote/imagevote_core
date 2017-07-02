@@ -13,8 +13,12 @@ if (file_exists($file) && filesize($file) && time() - filemtime("$dir/$table-1.t
         $file_num = $_POST["file"];
     }
 
-    echo file_get_contents("$dir/$table-$file_num.txt");
-    die();
+    $content = file_get_contents("$dir/$table-$file_num.txt");
+    //if enought questions to play..
+    if (strlen($content) > 200) {
+        echo $content;
+        die();
+    }
 }
 
 //$parse = array("preguntas", "preguntasEN", "preguntasIT", "preguntasFR", "preguntasDE", "preguntasPT");
@@ -90,9 +94,7 @@ if (in_array($table, $parse)) {
 
         $likes = !empty($row['likes']) ? (int) $row['likes'] : 0;
         $row['score'] = min((int) $row['v0'], (int) $row['v1']) + $likes - (int) $row['reports'];
-        if ($row['score'] > 0) { //prevent all scores 0 bug!
-            $all[] = $row;
-        }
+        $all[] = $row;
     }
 }
 
@@ -100,6 +102,10 @@ usort($all, function($a, $b) {
     return ($b['score'] < $a['score']) ? -1 : 1;
 });
 
+//prevent all '0' score bug (only parse)
+if (in_array($table, $parse) && !$all[0]['score']) {
+    die();
+}
 
 //delete
 $mask = "$dir/$table-*.txt";

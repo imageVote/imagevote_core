@@ -3,18 +3,9 @@
 require_once 'sql/connect.php';
 require_once 'urlStorage.php';
 
-$base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-$base10 = '0123456789';
-require "convBase.php";
-
 function fileToSql($id, $table, $key = null) {
     global $base, $base10;
     $con = new AliConnection($table);
-
-    if (null == $key) {
-        require_once 'idKey.php';
-        $key = keyId($id, $table);
-    }
 
     $url = urlStorage();
     $path = "http://{$con->subdomain}.{$url}/$key?nocache=" . rand();

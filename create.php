@@ -12,11 +12,8 @@ if (isset($_POST["table"])) {
 }
 $id = sql_create($data, $table);
 
-require_once 'idKey.php';
-$key = keyId($id, $table);
-
 require_once 'ali/ali_append.php';
-ali_append($key, $data, $table);
+ali_append($id, $data, $table);
 
 
-echo $key;
+echo $id;

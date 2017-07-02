@@ -3,9 +3,6 @@
 //TODO: if some offshore uses his phone number to vote in other countries requesting with other country name
 
 
-$base = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-$base10 = '0123456789';
-
 //id here can be the public or the private
 $userId = null;
 if(isset($_POST["userId"])){

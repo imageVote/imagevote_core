@@ -16,7 +16,7 @@ if ("update" == $action) {
     create();
 //
 } else if ("newkey" == $action) {
-    newKey();
+    //
 
 } else {
     die("not action defined");
@@ -28,10 +28,6 @@ function create() {
 
 function update() {
     include 'add.php';
-}
-
-function newKey(){
-    
 }
 
 //old android
