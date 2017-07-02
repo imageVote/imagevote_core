@@ -1,6 +1,6 @@
 <?php
 
-require_once 'sql/connect.php'; //$connect, $user, $pass
+require_once 'sql/connect.php'; //$connect, $user, $pass && sql_error()
 
 function sql_select($table, $id = null, $lastId = null, $arrIds = null) {
     if (empty($table)) {

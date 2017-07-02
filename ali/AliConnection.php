@@ -16,8 +16,7 @@ class AliConnection {
     public $hash;
 
     public function __construct($table = "private") {
-        $_APPNAME = "wouldyourather";
-        include 'config.php'; //overrides $_APPNAME if exists
+        include 'config.php'; //$_APPNAME
 
         if (empty($table)) {
             $table = "private";
