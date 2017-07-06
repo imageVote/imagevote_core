@@ -23,11 +23,12 @@ if (file_exists($file) && filesize($file) && time() - filemtime("$dir/$table-1.t
 }
 
 //$parse = array("preguntas", "preguntasEN", "preguntasIT", "preguntasFR", "preguntasDE", "preguntasPT");
-$parse = array("es", "en", "it", "fr", "de", "pt");
+$parseLanguages = array("es", "en", "it", "fr", "de", "pt");
+$isParse = in_array($table, $parseLanguages) && "wouldyourather" == $_APPNAME;
 
 $all = array(); //same array type
 
-if (in_array($table, $parse) && "wouldyourather" == $_APPNAME) {
+if ($isParse) {
     $parse = parseSelectAll($table);
     for ($i = 0; $i < count($parse); $i++) {
         $row = $parse[$i];
@@ -104,7 +105,7 @@ usort($all, function($a, $b) {
 });
 
 //prevent all '0' score bug (only parse)
-if (in_array($table, $parse) && (!count($all) || !$all[0]['score'])) {
+if ($isParse && (!count($all) || !$all[0]['score'])) {
     die();
 }
 
